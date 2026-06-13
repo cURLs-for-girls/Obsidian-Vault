@@ -1,0 +1,89 @@
+<h2>AI Infrastructure Sizer — Wizard Flow</h2>
+<p class="subtitle">Klick durch die Screens und sag mir ob der Ablauf passt</p>
+
+<div class="section">
+  <div style="display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap;">
+
+    <!-- Screen 1 -->
+    <div style="flex: 1; min-width: 160px; background: var(--surface, #1e1e2e); border: 2px solid #4f46e5; border-radius: 12px; padding: 16px;">
+      <div style="font-size: 11px; font-weight: 700; color: #4f46e5; letter-spacing: 1px; margin-bottom: 8px;">SCREEN 1</div>
+      <div style="font-weight: 600; margin-bottom: 6px; font-size: 14px;">🚀 Einstieg</div>
+      <div style="font-size: 12px; opacity: 0.7; line-height: 1.5;">Headline + kurze Erklärung<br>„Finden Sie Ihre AI-Infrastruktur in 2 Minuten"<br><br>→ CTA: Jetzt starten</div>
+    </div>
+
+    <div style="display: flex; align-items: center; color: #4f46e5; font-size: 20px; padding-top: 30px;">→</div>
+
+    <!-- Screen 2 -->
+    <div style="flex: 1; min-width: 160px; background: var(--surface, #1e1e2e); border: 1px solid #333; border-radius: 12px; padding: 16px;">
+      <div style="font-size: 11px; font-weight: 700; color: #888; letter-spacing: 1px; margin-bottom: 8px;">SCREEN 2</div>
+      <div style="font-weight: 600; margin-bottom: 6px; font-size: 14px;">🎯 Anwendungsfall</div>
+      <div style="font-size: 12px; opacity: 0.7; line-height: 1.5;">Inferenz · Training<br>RAG · Fine-Tuning<br><br>→ Auswahl = weiter</div>
+    </div>
+
+    <div style="display: flex; align-items: center; color: #4f46e5; font-size: 20px; padding-top: 30px;">→</div>
+
+    <!-- Screen 3 -->
+    <div style="flex: 1; min-width: 160px; background: var(--surface, #1e1e2e); border: 1px solid #333; border-radius: 12px; padding: 16px;">
+      <div style="font-size: 11px; font-weight: 700; color: #888; letter-spacing: 1px; margin-bottom: 8px;">SCREEN 3</div>
+      <div style="font-weight: 600; margin-bottom: 6px; font-size: 14px;">🤖 Modell-Größe</div>
+      <div style="font-size: 12px; opacity: 0.7; line-height: 1.5;">Klein &lt;7B<br>Mittel 7–70B<br>Groß &gt;70B<br><br>→ Auswahl = weiter</div>
+    </div>
+
+    <div style="display: flex; align-items: center; color: #4f46e5; font-size: 20px; padding-top: 30px;">→</div>
+
+    <!-- Screen 4 -->
+    <div style="flex: 1; min-width: 160px; background: var(--surface, #1e1e2e); border: 1px solid #333; border-radius: 12px; padding: 16px;">
+      <div style="font-size: 11px; font-weight: 700; color: #888; letter-spacing: 1px; margin-bottom: 8px;">SCREEN 4</div>
+      <div style="font-weight: 600; margin-bottom: 6px; font-size: 14px;">👥 Concurrent Users</div>
+      <div style="font-size: 12px; opacity: 0.7; line-height: 1.5;">1–10 · 10–50<br>50–200 · 200+<br><br>→ Auswahl = weiter</div>
+    </div>
+
+    <div style="display: flex; align-items: center; color: #4f46e5; font-size: 20px; padding-top: 30px;">→</div>
+
+    <!-- Screen 5 -->
+    <div style="flex: 1; min-width: 160px; background: var(--surface, #1e1e2e); border: 1px solid #333; border-radius: 12px; padding: 16px;">
+      <div style="font-size: 11px; font-weight: 700; color: #888; letter-spacing: 1px; margin-bottom: 8px;">SCREEN 5</div>
+      <div style="font-weight: 600; margin-bottom: 6px; font-size: 14px;">📝 Kontextlänge</div>
+      <div style="font-size: 12px; opacity: 0.7; line-height: 1.5;">Kurz &lt;4k Token<br>Mittel 4–32k<br>Lang &gt;32k<br><br>→ Auswahl = weiter</div>
+    </div>
+
+    <div style="display: flex; align-items: center; color: #4f46e5; font-size: 20px; padding-top: 30px;">→</div>
+
+    <!-- Screen 6 - Result -->
+    <div style="flex: 1; min-width: 160px; background: linear-gradient(135deg, #1e1e2e, #2d1f4e); border: 2px solid #7c3aed; border-radius: 12px; padding: 16px; position: relative;">
+      <div style="font-size: 11px; font-weight: 700; color: #7c3aed; letter-spacing: 1px; margin-bottom: 8px;">SCREEN 6 ✨</div>
+      <div style="font-weight: 600; margin-bottom: 6px; font-size: 14px;">🔒 Ergebnis</div>
+      <div style="font-size: 12px; opacity: 0.7; line-height: 1.5;">Ungefähre Empfehlung sichtbar<br>Konkrete Specs <b>verschwommen</b><br><br>→ Email eingeben<br>→ Vollbericht per Mail</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <h3>Offene Fragen zum Flow</h3>
+  <p class="subtitle">Was soll ich als nächstes im Browser zeigen?</p>
+
+  <div class="options">
+    <div class="option" data-choice="question-screen" onclick="toggleSelect(this)">
+      <div class="letter">A</div>
+      <div class="content">
+        <h3>Frage-Screen Mockup</h3>
+        <p>Wie eine einzelne Wizard-Frage aussieht — Kacheln, Fortschrittsbalken, CANCOM-Look</p>
+      </div>
+    </div>
+    <div class="option" data-choice="result-screen" onclick="toggleSelect(this)">
+      <div class="letter">B</div>
+      <div class="content">
+        <h3>Ergebnis-Screen Mockup</h3>
+        <p>Der "Wow-Moment" — blurred Empfehlung, Lock, Email-Gate. Das Herzstück der Demo</p>
+      </div>
+    </div>
+    <div class="option" data-choice="both" onclick="toggleSelect(this)">
+      <div class="letter">C</div>
+      <div class="content">
+        <h3>Beide nacheinander</h3>
+        <p>Erst Frage-Screen, dann Ergebnis-Screen</p>
+      </div>
+    </div>
+  </div>
+</div>

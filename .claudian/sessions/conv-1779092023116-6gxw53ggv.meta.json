@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779092023116-6gxw53ggv",
+  "providerId": "claude",
+  "title": "Prepare Learning Friday AI datacenter session",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779092023116,
+  "updatedAt": 1779172618152,
+  "lastResponseAt": 1779092050636,
+  "sessionId": "dcb7f813-0dca-4c98-953b-f9bd0fd32037",
+  "providerState": {
+    "providerSessionId": "dcb7f813-0dca-4c98-953b-f9bd0fd32037"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 69,
+    "cacheReadInputTokens": 18757,
+    "contextWindow": 200000,
+    "contextTokens": 18827,
+    "percentage": 9,
+    "contextWindowIsAuthoritative": true
+  }
+}

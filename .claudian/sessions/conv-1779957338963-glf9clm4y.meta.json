@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779957338963-glf9clm4y",
+  "providerId": "claude",
+  "title": "Transkript zusammenfassen und Skill erstellen",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779957338963,
+  "updatedAt": 1779979775980,
+  "lastResponseAt": 1779960669900,
+  "sessionId": "2a770650-90d6-4407-a2e1-d055759e079e",
+  "providerState": {
+    "providerSessionId": "2a770650-90d6-4407-a2e1-d055759e079e"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 1220,
+    "cacheReadInputTokens": 67427,
+    "contextWindow": 200000,
+    "contextTokens": 68650,
+    "percentage": 34,
+    "contextWindowIsAuthoritative": true
+  }
+}

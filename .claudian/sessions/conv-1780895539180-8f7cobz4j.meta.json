@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780895539180-8f7cobz4j",
+  "providerId": "claude",
+  "title": "Transkript analysieren und Übungen-Wiki erweitern",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780895539181,
+  "updatedAt": 1781199677021,
+  "lastResponseAt": 1781083457167,
+  "sessionId": "8c77ed98-beee-4ed0-a631-d3c935c2303e",
+  "providerState": {
+    "providerSessionId": "8c77ed98-beee-4ed0-a631-d3c935c2303e"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 8665,
+    "cacheReadInputTokens": 89629,
+    "contextWindow": 1000000,
+    "contextTokens": 98295,
+    "percentage": 10,
+    "contextWindowIsAuthoritative": true
+  }
+}

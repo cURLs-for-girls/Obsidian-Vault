@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779188147841-4m3wzrtcm",
+  "providerId": "claude",
+  "title": "Analyze attachment architecture",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779188147841,
+  "updatedAt": 1779365744580,
+  "lastResponseAt": 1779194070282,
+  "sessionId": "8938d112-e5ac-4a55-b102-ef3208a87015",
+  "providerState": {
+    "providerSessionId": "8938d112-e5ac-4a55-b102-ef3208a87015"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 621,
+    "cacheReadInputTokens": 55523,
+    "contextWindow": 200000,
+    "contextTokens": 56147,
+    "percentage": 28,
+    "contextWindowIsAuthoritative": true
+  }
+}

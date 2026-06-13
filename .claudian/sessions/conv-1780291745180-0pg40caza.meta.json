@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780291745180-0pg40caza",
+  "providerId": "claude",
+  "title": "Recall Functional Patterns exercises",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780291745180,
+  "updatedAt": 1780318980342,
+  "lastResponseAt": 1780291775086,
+  "sessionId": "5367729d-b8c7-4bc9-9119-70b6a811ba54",
+  "providerState": {
+    "providerSessionId": "5367729d-b8c7-4bc9-9119-70b6a811ba54"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 1980,
+    "cacheReadInputTokens": 33447,
+    "contextWindow": 1000000,
+    "contextTokens": 35428,
+    "percentage": 4,
+    "contextWindowIsAuthoritative": true
+  }
+}

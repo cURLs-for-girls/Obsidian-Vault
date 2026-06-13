@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780327162996-yuuw4w23s",
+  "providerId": "claude",
+  "title": "Check plaud plugin",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780327162996,
+  "updatedAt": 1780392259596,
+  "lastResponseAt": 1780391484067,
+  "sessionId": "5fd59bbc-f23d-4346-9553-1cf498241b11",
+  "providerState": {
+    "providerSessionId": "5fd59bbc-f23d-4346-9553-1cf498241b11"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 2097,
+    "cacheReadInputTokens": 57654,
+    "contextWindow": 1000000,
+    "contextTokens": 59757,
+    "percentage": 6,
+    "contextWindowIsAuthoritative": true
+  }
+}

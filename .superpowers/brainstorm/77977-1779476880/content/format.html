@@ -1,0 +1,70 @@
+<h2>Welches Format soll der Flyer haben?</h2>
+<p class="subtitle">Das Format bestimmt das gesamte Layout — hier ein Eindruck wie die Hintergrundbilder jeweils wirken</p>
+
+<div class="cards" style="grid-template-columns: repeat(3, 1fr); align-items: start;">
+
+  <!-- A4 Hochformat -->
+  <div class="card" data-choice="a4-portrait" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #1a1a1a; display:flex; justify-content:center; min-height: 220px; align-items:center;">
+      <div style="width: 100px; height: 141px; position:relative; overflow:hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+        <img src="trainer-m.PNG" style="width:100%; height:100%; object-fit:cover; object-position: center top; opacity:0.35; display:block; filter: grayscale(60%);">
+        <div style="position:absolute; inset:0; background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.7) 100%);"></div>
+        <div style="position:absolute; inset:0; padding:8px; display:flex; flex-direction:column; justify-content:flex-end;">
+          <div style="font-size:5px; letter-spacing:1.5px; color:rgba(255,255,255,0.6); font-family:sans-serif; text-transform:uppercase; margin-bottom:3px;">Biomechanik-Seminar</div>
+          <div style="font-size:9px; font-weight:800; color:#fff; font-family:sans-serif; line-height:1.2; text-transform:uppercase;">Schmerz-<br>frei.</div>
+          <div style="width:15px; height:1px; background:#fff; margin:4px 0;"></div>
+          <div style="font-size:4px; color:rgba(255,255,255,0.5); font-family:sans-serif;">Functional Patterns</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — A4 Hochformat</h3>
+      <p>Klassischer Flyer zum Ausdrucken und Aushängen (Sporthallen, Praxen, Cafés). Viel Platz für Details, Datum, Beschreibung und Anmeldung.</p>
+    </div>
+  </div>
+
+  <!-- DIN Lang -->
+  <div class="card" data-choice="din-lang" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #1a1a1a; display:flex; justify-content:center; min-height: 220px; align-items:center;">
+      <div style="width: 141px; height: 99px; position:relative; overflow:hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+        <img src="trainer-f.PNG" style="width:100%; height:100%; object-fit:cover; object-position: center 20%; opacity:0.35; display:block; filter: grayscale(50%);">
+        <div style="position:absolute; inset:0; background: linear-gradient(135deg, rgba(26,47,35,0.85) 0%, rgba(10,10,10,0.6) 100%);"></div>
+        <div style="position:absolute; inset:0; padding:10px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-size:5px; letter-spacing:2px; color:rgba(255,255,255,0.5); font-family:sans-serif; text-transform:uppercase; margin-bottom:4px;">Functional Patterns</div>
+          <div style="font-size:8px; font-weight:800; color:#fff; font-family:sans-serif; line-height:1.2; text-transform:uppercase;">Biomechanik<br>Seminar</div>
+          <div style="width:20px; height:1px; background:rgba(255,255,255,0.4); margin:5px 0;"></div>
+          <div style="font-size:4px; color:rgba(255,255,255,0.4); font-family:sans-serif; line-height:1.4;">Datum · Ort · Anmeldung</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — DIN Lang / Querformat</h3>
+      <p>Schmal und elegant — passt in Briefumschläge, liegt gut auf Tischen aus. Eher für Weitergabe von Hand, weniger zum Aushängen.</p>
+    </div>
+  </div>
+
+  <!-- Instagram / Quadrat -->
+  <div class="card" data-choice="square-digital" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 16px; background: #1a1a1a; display:flex; justify-content:center; min-height: 220px; align-items:center;">
+      <div style="width: 120px; height: 120px; position:relative; overflow:hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+        <img src="trainer-m.PNG" style="width:100%; height:100%; object-fit:cover; object-position: center top; opacity:0.3; display:block; filter: grayscale(40%);">
+        <div style="position:absolute; inset:0; background: radial-gradient(circle at 60% 40%, rgba(20,40,30,0.5) 0%, rgba(5,5,5,0.85) 100%);"></div>
+        <div style="position:absolute; inset:0; padding:12px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div style="font-size:4px; letter-spacing:2px; color:rgba(255,255,255,0.5); font-family:sans-serif; text-transform:uppercase;">Functional Patterns</div>
+          <div>
+            <div style="font-size:9px; font-weight:900; color:#fff; font-family:sans-serif; line-height:1.15; text-transform:uppercase;">Dein Körper<br>ist nicht<br>kaputt.</div>
+          </div>
+          <div style="font-size:4px; color:rgba(255,255,255,0.4); font-family:sans-serif;">Biomechanik-Seminar · Anmeldung ↓</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Quadrat (Digital)</h3>
+      <p>Für Instagram, WhatsApp, digitale Weitergabe. Kein Druck nötig. Ideal wenn der Hauptkanal Social Media ist — kann auch als Story (9:16) umgesetzt werden.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top: 20px; font-style:italic;">💡 Tipp: Formate lassen sich kombinieren — z.B. A4 zum Ausdrucken + Quadrat für Instagram.</p>
+<p class="subtitle">Klick auf ein Format oder sag im Terminal was du dir vorstellst.</p>

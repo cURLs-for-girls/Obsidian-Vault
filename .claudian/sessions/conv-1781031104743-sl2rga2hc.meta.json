@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781031104743-sl2rga2hc",
+  "providerId": "claude",
+  "title": "Plan Cancom Live Roadshow presentation",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781031104744,
+  "updatedAt": 1781073614008,
+  "lastResponseAt": 1781031493457,
+  "sessionId": "1dd4d6e9-4c2f-4093-9cdf-1a499c4c371a",
+  "providerState": {
+    "providerSessionId": "1dd4d6e9-4c2f-4093-9cdf-1a499c4c371a"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 1601,
+    "cacheReadInputTokens": 51059,
+    "contextWindow": 1000000,
+    "contextTokens": 52666,
+    "percentage": 5,
+    "contextWindowIsAuthoritative": true
+  }
+}

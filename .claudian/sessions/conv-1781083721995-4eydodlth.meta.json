@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781083721995-4eydodlth",
+  "providerId": "claude",
+  "title": "KI-Projekt für Elite Workshop vorbereiten",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781083721995,
+  "updatedAt": 1781184715350,
+  "lastResponseAt": 1781083792115,
+  "sessionId": "59ec51bb-33c8-48c5-81a0-4bbd3f079328",
+  "providerState": {
+    "providerSessionId": "59ec51bb-33c8-48c5-81a0-4bbd3f079328"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 662,
+    "cacheReadInputTokens": 43570,
+    "contextWindow": 1000000,
+    "contextTokens": 44233,
+    "percentage": 4,
+    "contextWindowIsAuthoritative": true
+  }
+}

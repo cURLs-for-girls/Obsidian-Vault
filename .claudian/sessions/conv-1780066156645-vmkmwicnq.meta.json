@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780066156645-vmkmwicnq",
+  "providerId": "claude",
+  "title": "Kreiere Token-Giveaway für Summit-Stand",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780066156646,
+  "updatedAt": 1780291727934,
+  "lastResponseAt": 1780066961171,
+  "sessionId": "553aa772-1313-4997-b0dd-b2044b2678ef",
+  "providerState": {
+    "providerSessionId": "553aa772-1313-4997-b0dd-b2044b2678ef"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 0,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 1000000,
+    "contextTokens": 0,
+    "percentage": 0,
+    "contextWindowIsAuthoritative": true
+  }
+}

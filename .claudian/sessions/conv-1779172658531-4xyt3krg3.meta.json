@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779172658531-4xyt3krg3",
+  "providerId": "claude",
+  "title": "Protect Obsidian notes from AI training",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779172658532,
+  "updatedAt": 1779368104472,
+  "lastResponseAt": 1779188169031,
+  "sessionId": "842bd016-f089-43d3-95a8-a1f8b828981c",
+  "providerState": {
+    "providerSessionId": "842bd016-f089-43d3-95a8-a1f8b828981c"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 455,
+    "cacheReadInputTokens": 20084,
+    "contextWindow": 200000,
+    "contextTokens": 20540,
+    "percentage": 10,
+    "contextWindowIsAuthoritative": true
+  }
+}

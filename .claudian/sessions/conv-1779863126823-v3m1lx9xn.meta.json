@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779863126823-v3m1lx9xn",
+  "providerId": "claude",
+  "title": "Create learning cards for chapter 3.3",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779863126823,
+  "updatedAt": 1780327152526,
+  "lastResponseAt": 1779990387327,
+  "sessionId": "15b36314-f59e-43bf-b52b-6ce015fe11f6",
+  "providerState": {
+    "providerSessionId": "15b36314-f59e-43bf-b52b-6ce015fe11f6"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 273,
+    "cacheReadInputTokens": 61678,
+    "contextWindow": 1000000,
+    "contextTokens": 61957,
+    "percentage": 6,
+    "contextWindowIsAuthoritative": true
+  }
+}

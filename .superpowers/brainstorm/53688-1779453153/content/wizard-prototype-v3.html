@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CANCOM AI Infrastructure Sizer</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f4f4f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shop-header {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 12px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .shop-logo { font-size: 22px; font-weight: 800; color: #e30613; letter-spacing: -0.5px; }
+  .shop-logo span { color: #1a1a1a; }
+  .shop-nav { font-size: 13px; color: #666; margin-left: 8px; }
+  .shop-nav b { color: #1a1a1a; }
+
+  .wizard-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 60px;
+  }
+
+  .wizard-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 700px;
+    overflow: hidden;
+  }
+
+  .progress-bar { height: 4px; background: #f0f0f0; }
+  .progress-fill { height: 100%; background: #e30613; transition: width 0.4s ease; }
+
+  .step-indicator {
+    padding: 18px 32px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .screen { display: none; padding: 24px 32px 32px; }
+  .screen.active { display: block; }
+
+  .screen h2 { font-size: 22px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; line-height: 1.3; }
+  .screen .sub { font-size: 14px; color: #888; margin-bottom: 22px; line-height: 1.5; }
+
+  /* 2-col grid default, 3-col variant */
+  .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .options-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .tile {
+    border: 2px solid #ebebeb;
+    border-radius: 12px;
+    padding: 16px 14px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: left;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .tile:hover {
+    border-color: #e30613;
+    background: #fff5f5;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(227,6,19,0.1);
+  }
+  .tile-top { display: flex; align-items: center; gap: 8px; }
+  .tile-icon { font-size: 22px; flex-shrink: 0; }
+  .tile-title { font-size: 14px; font-weight: 700; color: #1a1a1a; line-height: 1.2; }
+  .tile-model {
+    display: inline-block;
+    background: #f0f0f2;
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #666;
+    width: fit-content;
+  }
+  .tile-desc { font-size: 12px; color: #999; line-height: 1.4; }
+
+  /* Intro */
+  .intro-hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #c00510 100%);
+    margin: -24px -32px 24px;
+    padding: 36px 32px;
+    color: white;
+  }
+  .intro-hero h1 { font-size: 26px; font-weight: 800; margin-bottom: 10px; line-height: 1.25; }
+  .intro-hero p { font-size: 14px; opacity: 0.85; line-height: 1.6; max-width: 460px; }
+  .tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .stats-row { display: flex; gap: 32px; margin: 20px 0 26px; }
+  .stat-num { font-size: 26px; font-weight: 800; color: #1a1a1a; }
+  .stat-label { font-size: 11px; color: #888; margin-top: 2px; }
+
+  .btn-primary {
+    background: #e30613;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    width: 100%;
+  }
+  .btn-primary:hover { background: #c00510; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(227,6,19,0.3); }
+
+  /* Model hint box */
+  .model-hint {
+    background: #fffbeb;
+    border: 1.5px solid #f59e0b;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .model-hint-text { font-size: 12px; color: #78350f; line-height: 1.5; }
+  .model-hint-text strong { display: block; margin-bottom: 4px; }
+  .model-logos { display: flex; gap: 5px; margin-top: 6px; flex-wrap: wrap; }
+  .model-logo-tag {
+    background: rgba(255,255,255,0.8);
+    border: 1px solid #f59e0b;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #92400e;
+  }
+
+  /* Result */
+  .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .result-teaser {
+    background: #f8f9fa;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .result-label { font-size: 10px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+  .result-value { font-size: 18px; font-weight: 700; color: #1a1a1a; line-height: 1.2; }
+  .result-sub { font-size: 12px; color: #888; margin-top: 3px; }
+
+  .result-locked {
+    background: linear-gradient(135deg, #18181b, #27272a);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .locked-content { filter: blur(5px); user-select: none; pointer-events: none; }
+  .locked-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(2px);
+    color: white;
+    text-align: center;
+    padding: 16px;
+  }
+  .lock-icon { font-size: 30px; margin-bottom: 6px; }
+  .locked-overlay h3 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+  .locked-overlay p { font-size: 12px; opacity: 0.75; }
+
+  .locked-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: white;
+    font-size: 13px;
+  }
+  .locked-row:last-child { border-bottom: none; }
+  .locked-row-label { opacity: 0.6; }
+  .locked-row-val { font-weight: 700; }
+  .locked-row.gold { background: rgba(245,158,11,0.12); border-radius: 6px; padding: 9px 8px; margin: 2px -4px; border-bottom: none; }
+  .locked-row.gold .locked-row-label { color: #fbbf24; opacity: 1; }
+  .locked-row.gold .locked-row-val { color: #fde68a; }
+
+  .email-gate {
+    border: 2px solid #e30613;
+    border-radius: 12px;
+    padding: 18px 20px;
+    background: #fff8f8;
+  }
+  .email-gate h3 { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 3px; }
+  .email-gate p { font-size: 12px; color: #888; margin-bottom: 14px; line-height: 1.5; }
+  .email-row { display: flex; gap: 8px; }
+  .email-input {
+    flex: 1;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 11px 13px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.15s;
+    font-family: inherit;
+  }
+  .email-input:focus { border-color: #e30613; }
+  .btn-submit {
+    background: #e30613;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+    font-family: inherit;
+  }
+  .btn-submit:hover { background: #c00510; }
+
+  /* Thank you */
+  .thankyou-icon { font-size: 56px; text-align: center; margin-bottom: 14px; }
+  .thankyou-box {
+    background: #f0faf4;
+    border: 1.5px solid #34c759;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+  }
+  .thankyou-box p { font-size: 13px; color: #1a5c35; line-height: 1.7; }
+
+  .back-btn {
+    background: none; border: none; color: #bbb; font-size: 12px;
+    cursor: pointer; padding: 0; margin-bottom: 14px;
+    display: inline-flex; align-items: center; gap: 4px;
+    font-family: inherit;
+    transition: color 0.1s;
+  }
+  .back-btn:hover { color: #555; }
+
+  .summary-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
+  .chip {
+    background: #f0f0f2; border-radius: 20px; padding: 4px 11px;
+    font-size: 11px; font-weight: 600; color: #555;
+  }
+  .chip em { color: #e30613; font-style: normal; }
+</style>
+</head>
+<body>
+
+<div class="shop-header">
+  <div class="shop-logo">CANCOM<span>.</span></div>
+  <div class="shop-nav">Shop → Server → <b>AI Infrastructure Sizer</b></div>
+</div>
+
+<div class="wizard-wrap">
+  <div class="wizard-card">
+    <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+    <div class="step-indicator" id="stepInd"></div>
+
+    <!-- S0: Intro -->
+    <div class="screen active" id="s0">
+      <div class="intro-hero">
+        <div class="tag">✦ Kostenlos · 2 Minuten</div>
+        <h1>Finden Sie Ihre AI-Infrastruktur</h1>
+        <p>4 kurze Fragen — und Sie erhalten eine maßgeschneiderte Empfehlung für GPU, Server, KI-Modell und den vollständigen AI Factory Stack.</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-num">4</div><div class="stat-label">Fragen</div></div>
+        <div class="stat"><div class="stat-num">2 min</div><div class="stat-label">Zeitaufwand</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Kostenlos</div></div>
+      </div>
+      <p style="font-size:13px;color:#999;margin-bottom:20px;line-height:1.6;">
+        Wir dimensionieren GPU-Leistung, Server-Konfiguration und empfehlen das optimale KI-Modell — abgestimmt auf Ihren Anwendungsfall und Ihre Nutzerzahl.
+      </p>
+      <button class="btn-primary" onclick="goTo(1)">Jetzt Sizing starten →</button>
+    </div>
+
+    <!-- S1: Use Case + Modell-Typ (merged) -->
+    <div class="screen" id="s1">
+      <button class="back-btn" onclick="goTo(0)">← Zurück</button>
+      <h2>Was beschreibt Ihr Vorhaben am besten?</h2>
+      <p class="sub">Wählen Sie den Anwendungsfall — der Modell-Typ folgt daraus automatisch.</p>
+
+      <div class="model-hint">
+        <span style="font-size:16px;flex-shrink:0">💡</span>
+        <div class="model-hint-text">
+          <strong>Kein konkretes Modell im Kopf? Kein Problem.</strong>
+          Unsere Experten beobachten wöchentlich den KI-Markt und empfehlen das optimale Modell für Ihren Use Case.
+          <div class="model-logos">
+            <span class="model-logo-tag">Claude</span>
+            <span class="model-logo-tag">GPT-4o</span>
+            <span class="model-logo-tag">Llama</span>
+            <span class="model-logo-tag">Gemini</span>
+            <span class="model-logo-tag">Mistral</span>
+            <span class="model-logo-tag">+ mehr</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="options-grid">
+
+        <div class="tile" onclick="pick('usecase','Chatbot / Assistent','Standard Chat-Modell',2)">
+          <div class="tile-top">
+            <div class="tile-icon">💬</div>
+            <div class="tile-title">Chatbot / Assistent</div>
+          </div>
+          <div class="tile-model">Standard Chat-Modell</div>
+          <div class="tile-desc">Service Desk KI, Kunden-Chatbot, interner FAQ-Assistent</div>
+        </div>
+
+        <div class="tile" onclick="pick('usecase','Dokumente & Wissen','Reasoning-Modell',2)">
+          <div class="tile-top">
+            <div class="tile-icon">🧠</div>
+            <div class="tile-title">Dokumente & Wissen</div>
+          </div>
+          <div class="tile-model">Reasoning-Modell</div>
+          <div class="tile-desc">Vertragsanalyse, Compliance-Prüfung, komplexe Dokumentenauswertung</div>
+        </div>
+
+        <div class="tile" onclick="pick('usecase','Coding Assistent','Coding-Modell',2)">
+          <div class="tile-top">
+            <div class="tile-icon">💻</div>
+            <div class="tile-title">Coding Assistent</div>
+          </div>
+          <div class="tile-model">Coding-Modell</div>
+          <div class="tile-desc">On-Premise Alternative zu GitHub Copilot für Entwicklungsteams</div>
+        </div>
+
+        <div class="tile" onclick="pick('usecase','Prozesse automatisieren','Agent-Modell',2)">
+          <div class="tile-top">
+            <div class="tile-icon">🔗</div>
+            <div class="tile-title">Prozesse automatisieren</div>
+          </div>
+          <div class="tile-model">Agent-Modell</div>
+          <div class="tile-desc">Mehrstufige Workflows — z.B. Bewerbung eingeht → KI screent → Termin gebucht → Absage raus</div>
+        </div>
+
+        <div class="tile" onclick="pick('usecase','Bild & Dokumente verstehen','Multimodal-Modell',2)">
+          <div class="tile-top">
+            <div class="tile-icon">👁️</div>
+            <div class="tile-title">Bild & Dokumente verstehen</div>
+          </div>
+          <div class="tile-model">Multimodal-Modell</div>
+          <div class="tile-desc">Rechnungs-Scanning, Maschinenfoto-Auswertung, technische Zeichnungen lesen</div>
+        </div>
+
+        <div class="tile" onclick="pick('usecase','Computer Vision / Video','Computer Vision',2)">
+          <div class="tile-top">
+            <div class="tile-icon">📷</div>
+            <div class="tile-title">Computer Vision / Video</div>
+          </div>
+          <div class="tile-model">Computer Vision</div>
+          <div class="tile-desc">Qualitätskontrolle am Fließband, Kamera-Auswertung, Videoanalyse in Echtzeit</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- S2: Concurrent Users -->
+    <div class="screen" id="s2">
+      <button class="back-btn" onclick="goTo(1)">← Zurück</button>
+      <h2>Wie viele Personen nutzen es gleichzeitig?</h2>
+      <p class="sub">Concurrent Users — also wie viele Anfragen gleichzeitig ankommen. Das ist einer der entscheidenden Faktoren für die GPU-Dimensionierung.</p>
+      <div class="options-grid">
+        <div class="tile" onclick="pick('users','1–10 Nutzer',null,3)">
+          <div class="tile-top"><div class="tile-icon">👤</div><div class="tile-title">1–10 Nutzer</div></div>
+          <div class="tile-desc">Einzelperson, kleines Team, Pilotprojekt oder Entwicklungsumgebung</div>
+        </div>
+        <div class="tile" onclick="pick('users','10–50 Nutzer',null,3)">
+          <div class="tile-top"><div class="tile-icon">👥</div><div class="tile-title">10–50 Nutzer</div></div>
+          <div class="tile-desc">Abteilung oder mittelgroßes Team im Produktiveinsatz</div>
+        </div>
+        <div class="tile" onclick="pick('users','50–200 Nutzer',null,3)">
+          <div class="tile-top"><div class="tile-icon">🏢</div><div class="tile-title">50–200 Nutzer</div></div>
+          <div class="tile-desc">Mehrere Abteilungen, unternehmensweiter Rollout</div>
+        </div>
+        <div class="tile" onclick="pick('users','200+ Nutzer',null,3)">
+          <div class="tile-top"><div class="tile-icon">🏭</div><div class="tile-title">200+ Nutzer</div></div>
+          <div class="tile-desc">Großunternehmen oder kundenorientierter / öffentlicher Dienst</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S3: Anfragegröße -->
+    <div class="screen" id="s3">
+      <button class="back-btn" onclick="goTo(2)">← Zurück</button>
+      <h2>Wie groß sind Ihre typischen Anfragen?</h2>
+      <p class="sub">Die Kontextlänge bestimmt, wie viel GPU-Speicher das Modell pro Anfrage belegt — und damit wie viele Nutzer gleichzeitig bedient werden können.</p>
+      <div class="options-grid cols-3">
+        <div class="tile" onclick="pick('context','Kurze Fragen & Antworten',null,4)">
+          <div class="tile-top"><div class="tile-icon">💬</div><div class="tile-title">Kurze Fragen</div></div>
+          <div class="tile-desc">Single-Turn FAQ, kurze Befehle, Chat-Nachrichten</div>
+          <div style="font-size:11px;color:#bbb;margin-top:6px;">bis ~4.000 Token</div>
+        </div>
+        <div class="tile" onclick="pick('context','Dokumente & Gesprächsverläufe',null,4)">
+          <div class="tile-top"><div class="tile-icon">📄</div><div class="tile-title">Dokumente</div></div>
+          <div class="tile-desc">Verträge, Berichte, Gespräche mit Verlauf</div>
+          <div style="font-size:11px;color:#bbb;margin-top:6px;">4.000–32.000 Token</div>
+        </div>
+        <div class="tile" onclick="pick('context','Sehr große Dateien & Code-Basen',null,4)">
+          <div class="tile-top"><div class="tile-icon">📚</div><div class="tile-title">Große Dateien</div></div>
+          <div class="tile-desc">Dokumentenbibliotheken, komplette Code-Basen, lange Analysen</div>
+          <div style="font-size:11px;color:#bbb;margin-top:6px;">über 32.000 Token</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S4: Latenz -->
+    <div class="screen" id="s4">
+      <button class="back-btn" onclick="goTo(3)">← Zurück</button>
+      <h2>Wie schnell muss die Antwort kommen?</h2>
+      <p class="sub">Latenz beeinflusst die Wahl zwischen schnellen Inferenz-Chips und hochdichten Cluster-Systemen — ein oft unterschätzter Sizing-Faktor.</p>
+      <div class="options-grid cols-3">
+        <div class="tile" onclick="pick('latency','Echtzeit (unter 3 Sekunden)',null,5)">
+          <div class="tile-top"><div class="tile-icon">⚡</div><div class="tile-title">Echtzeit</div></div>
+          <div class="tile-desc">Nutzer wartet aktiv — jede Sekunde zählt</div>
+          <div style="font-size:11px;color:#bbb;margin-top:6px;">z.B. Live-Chatbot, Copilot</div>
+        </div>
+        <div class="tile" onclick="pick('latency','Normal (bis 30 Sekunden)',null,5)">
+          <div class="tile-top"><div class="tile-icon">🕐</div><div class="tile-title">Normal</div></div>
+          <div class="tile-desc">Kurze Wartezeit akzeptabel — wie eine Web-Suche</div>
+          <div style="font-size:11px;color:#bbb;margin-top:6px;">z.B. Dokumentenanalyse</div>
+        </div>
+        <div class="tile" onclick="pick('latency','Batch (Minuten okay)',null,5)">
+          <div class="tile-top"><div class="tile-icon">🗂️</div><div class="tile-title">Batch</div></div>
+          <div class="tile-desc">Verarbeitung läuft im Hintergrund, Ergebnis kommt später</div>
+          <div style="font-size:11px;color:#bbb;margin-top:6px;">z.B. nächtliche Auswertungen</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S5: Ergebnis -->
+    <div class="screen" id="s5">
+      <h2>Ihre Sizing-Einschätzung</h2>
+      <div class="summary-chips" id="chips"></div>
+
+      <div class="result-grid">
+        <div class="result-teaser">
+          <div class="result-label">GPU-Klasse</div>
+          <div class="result-value" id="gpuClass">—</div>
+          <div class="result-sub" id="gpuEx"></div>
+        </div>
+        <div class="result-teaser">
+          <div class="result-label">Geschätzte Investition</div>
+          <div class="result-value" id="priceRange">—</div>
+          <div class="result-sub">je nach Konfiguration</div>
+        </div>
+      </div>
+
+      <div class="result-locked">
+        <div class="locked-content">
+          <div class="locked-row gold">
+            <span class="locked-row-label">✦ KI-Modell-Empfehlung</span>
+            <span class="locked-row-val">Llama 3.3 70B (on-prem)</span>
+          </div>
+          <div class="locked-row"><span class="locked-row-label">Empfohlene GPU</span><span class="locked-row-val">NVIDIA H100 80GB SXM</span></div>
+          <div class="locked-row"><span class="locked-row-label">Anzahl GPUs</span><span class="locked-row-val">2× (1 Node)</span></div>
+          <div class="locked-row"><span class="locked-row-label">Server</span><span class="locked-row-val">Dell PowerEdge XE9680</span></div>
+          <div class="locked-row"><span class="locked-row-label">VRAM gesamt</span><span class="locked-row-val">160 GB HBM3</span></div>
+          <div class="locked-row"><span class="locked-row-label">AI Factory Stack</span><span class="locked-row-val">Dell AI Factory + NVIDIA AI Enterprise</span></div>
+          <div class="locked-row"><span class="locked-row-label">Weiteres für Planung</span><span class="locked-row-val">Netzwerk · Storage · Rack-Kapazität · Lizenzen</span></div>
+        </div>
+        <div class="locked-overlay">
+          <div class="lock-icon">🔒</div>
+          <h3>Vollständige Empfehlung</h3>
+          <p>KI-Modell · GPU · Server · AI Factory Stack</p>
+        </div>
+      </div>
+
+      <div class="email-gate">
+        <h3>Vollbericht kostenlos erhalten</h3>
+        <p>GPU-Spezifikation, Server-Datenblatt, KI-Modell-Empfehlung und AI Factory Stack — alles in einem Report, direkt in Ihr Postfach. Ein CANCOM-Experte meldet sich innerhalb von 1–2 Werktagen.</p>
+        <div class="email-row">
+          <input class="email-input" type="email" placeholder="vorname.nachname@firma.de" id="emailInput">
+          <button class="btn-submit" onclick="submit()">Empfehlung anfordern →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- S6: Danke -->
+    <div class="screen" id="s6">
+      <div class="thankyou-icon">🎉</div>
+      <h2 style="text-align:center;margin-bottom:6px;">Empfehlung wird vorbereitet!</h2>
+      <p class="sub" style="text-align:center;margin-bottom:20px;">Ihr persönlicher Sizing-Report ist auf dem Weg.</p>
+      <div class="thankyou-box">
+        <p>
+          <strong>Was Sie erhalten:</strong><br><br>
+          ✅ Ihren Sizing-Report per E-Mail — inkl. KI-Modell-Vergleich, GPU-Empfehlung und Server-Datenblatt<br><br>
+          📞 Ein CANCOM AI-Spezialist meldet sich innerhalb von 1–2 Werktagen mit konkreten Empfehlungen<br><br>
+          📋 Ihr Profil: <strong id="summaryText"></strong>
+        </p>
+      </div>
+      <button class="btn-primary" onclick="restart()" style="background:#1a1a1a;">← Neues Sizing starten</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const state = {};
+  const TOTAL = 4;
+
+  function goTo(n) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('s'+n).classList.add('active');
+    const ind = document.getElementById('stepInd');
+    const bar = document.getElementById('progress');
+    if (n === 0) { ind.textContent = ''; bar.style.width = '0%'; }
+    else if (n <= TOTAL) { ind.textContent = 'Schritt ' + n + ' von ' + TOTAL; bar.style.width = (n/TOTAL*100)+'%'; }
+    else { ind.textContent = ''; bar.style.width = '100%'; }
+    window.scrollTo(0,0);
+  }
+
+  function pick(key, val, modelVal, next) {
+    state[key] = val;
+    if (modelVal) state.modelType = modelVal;
+    if (next === 5) showResult();
+    else goTo(next);
+  }
+
+  function showResult() {
+    // GPU sizing logic
+    const u = state.users || '';
+    const uc = state.usecase || '';
+    let gpu = 'Enterprise GPU', ex = '', price = '~150–400k €';
+
+    if (uc.includes('Chatbot')) {
+      if (u.includes('1–10')) { gpu='Professional GPU'; ex='z.B. NVIDIA L40S'; price='~30–80k €'; }
+      else if (u.includes('10–50')) { gpu='Enterprise GPU'; ex='z.B. NVIDIA A100 / H100'; price='~80–200k €'; }
+      else { gpu='Enterprise GPU (Multi-GPU)'; ex='z.B. 2× NVIDIA H100 SXM'; price='~150–350k €'; }
+    } else if (uc.includes('Coding')) {
+      if (u.includes('1–10') || u.includes('10–50')) { gpu='Professional GPU'; ex='z.B. NVIDIA L40S'; price='~30–100k €'; }
+      else { gpu='Enterprise GPU'; ex='z.B. NVIDIA H100'; price='~100–250k €'; }
+    } else if (uc.includes('Dokumente')) {
+      gpu='Enterprise GPU'; ex='z.B. NVIDIA H100 / H200'; price='~180–500k €';
+      if (u.includes('200+')) { gpu='HPC / AI Cluster'; price='~500k–1M+ €'; }
+    } else if (uc.includes('Prozesse')) {
+      gpu='Enterprise GPU'; ex='z.B. NVIDIA H100 SXM'; price='~150–400k €';
+    } else if (uc.includes('Computer Vision')) {
+      gpu='Inference-GPU / Edge AI'; ex='z.B. NVIDIA L40S / Jetson'; price='~20–150k €';
+    } else if (uc.includes('Bild')) {
+      gpu='Enterprise GPU'; ex='z.B. NVIDIA H100 SXM'; price='~150–400k €';
+    }
+
+    document.getElementById('gpuClass').textContent = gpu;
+    document.getElementById('gpuEx').textContent = ex;
+    document.getElementById('priceRange').textContent = price;
+
+    const chipsEl = document.getElementById('chips');
+    chipsEl.innerHTML = [
+      ['Anwendungsfall', state.usecase],
+      ['Modell-Typ', state.modelType],
+      ['Nutzer', state.users],
+      ['Kontext', state.context],
+      ['Latenz', state.latency]
+    ].filter(([,v])=>v).map(([k,v])=>`<div class="chip"><em>${k}:</em> ${v}</div>`).join('');
+
+    goTo(5);
+  }
+
+  function submit() {
+    const el = document.getElementById('emailInput');
+    if (!el.value || !el.value.includes('@')) { el.style.borderColor='#e30613'; el.focus(); return; }
+    document.getElementById('summaryText').textContent =
+      [state.usecase, state.modelType, state.users, state.context, state.latency].filter(Boolean).join(' · ');
+    goTo(6);
+  }
+
+  function restart() { Object.keys(state).forEach(k=>delete state[k]); goTo(0); }
+</script>
+</body>
+</html>

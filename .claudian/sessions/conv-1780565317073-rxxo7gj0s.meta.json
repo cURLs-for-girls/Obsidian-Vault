@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780565317073-rxxo7gj0s",
+  "providerId": "claude",
+  "title": "Complete CANCOM AI Sizing Wizard",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780565317073,
+  "updatedAt": 1781029447790,
+  "lastResponseAt": 1780667450854,
+  "sessionId": "44f7a2c4-6743-42b9-9a73-503c36cda339",
+  "providerState": {
+    "providerSessionId": "44f7a2c4-6743-42b9-9a73-503c36cda339"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 14456,
+    "cacheReadInputTokens": 142778,
+    "contextWindow": 1000000,
+    "contextTokens": 157235,
+    "percentage": 16,
+    "contextWindowIsAuthoritative": true
+  }
+}

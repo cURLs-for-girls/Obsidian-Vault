@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780569063532-rugfsi9jf",
+  "providerId": "claude",
+  "title": "Obtain persistent Plaud API token",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780569063532,
+  "updatedAt": 1780586202444,
+  "lastResponseAt": 1780569094844,
+  "sessionId": "8789947d-66ab-4bf8-932a-5826b1f0dd65",
+  "providerState": {
+    "providerSessionId": "8789947d-66ab-4bf8-932a-5826b1f0dd65"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 2037,
+    "cacheReadInputTokens": 18020,
+    "contextWindow": 200000,
+    "contextTokens": 20059,
+    "percentage": 10,
+    "contextWindowIsAuthoritative": true
+  }
+}

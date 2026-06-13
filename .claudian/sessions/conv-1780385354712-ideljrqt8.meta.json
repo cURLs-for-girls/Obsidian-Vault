@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780385354712-ideljrqt8",
+  "providerId": "claude",
+  "title": "Create Podcast Promotion Text\n\n---\n\nGerne! Hier...",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780385354712,
+  "updatedAt": 1780389929776,
+  "lastResponseAt": 1780385420970,
+  "sessionId": "45d19134-8d55-47d1-9bd9-bd92088a9133",
+  "providerState": {
+    "providerSessionId": "45d19134-8d55-47d1-9bd9-bd92088a9133"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 478,
+    "cacheReadInputTokens": 34715,
+    "contextWindow": 1000000,
+    "contextTokens": 35194,
+    "percentage": 4,
+    "contextWindowIsAuthoritative": true
+  }
+}

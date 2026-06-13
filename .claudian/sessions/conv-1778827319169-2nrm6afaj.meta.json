@@ -1,0 +1,23 @@
+{
+  "id": "conv-1778827319169-2nrm6afaj",
+  "providerId": "claude",
+  "title": "Schreibe Anteasertext DGX Spark Software Stack",
+  "titleGenerationStatus": "success",
+  "createdAt": 1778827319169,
+  "updatedAt": 1779040672471,
+  "lastResponseAt": 1778827686560,
+  "sessionId": "29067db1-a109-4de5-82ba-db385d69aa1e",
+  "providerState": {
+    "providerSessionId": "29067db1-a109-4de5-82ba-db385d69aa1e"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 1505,
+    "cacheReadInputTokens": 21501,
+    "contextWindow": 200000,
+    "contextTokens": 23009,
+    "percentage": 12,
+    "contextWindowIsAuthoritative": true
+  }
+}

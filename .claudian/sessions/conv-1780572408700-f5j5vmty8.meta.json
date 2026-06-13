@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780572408700-f5j5vmty8",
+  "providerId": "claude",
+  "title": "Lernkarten für Kapitel 3 erweitern",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780572408700,
+  "updatedAt": 1781028869147,
+  "lastResponseAt": 1780586651615,
+  "sessionId": "71c17aff-8948-49e9-accb-218bd0bfcd1f",
+  "providerState": {
+    "providerSessionId": "71c17aff-8948-49e9-accb-218bd0bfcd1f"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 792,
+    "cacheReadInputTokens": 71768,
+    "contextWindow": 1000000,
+    "contextTokens": 72566,
+    "percentage": 7,
+    "contextWindowIsAuthoritative": true
+  }
+}

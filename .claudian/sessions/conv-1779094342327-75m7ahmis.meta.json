@@ -1,0 +1,26 @@
+{
+  "id": "conv-1779094342327-75m7ahmis",
+  "providerId": "claude",
+  "title": "Develop AI Factory Summit talk outline",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779094342328,
+  "updatedAt": 1779114803988,
+  "lastResponseAt": 1779106015284,
+  "sessionId": "3196469d-e92d-4657-96d1-6ea40db5beca",
+  "providerState": {
+    "providerSessionId": "3196469d-e92d-4657-96d1-6ea40db5beca"
+  },
+  "externalContextPaths": [
+    "/Users/eva.doelle/Library/CloudStorage/OneDrive-CANCOMGmbH/AI/2_CDC allgemein/AI Factory Summit"
+  ],
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 476,
+    "cacheReadInputTokens": 25415,
+    "contextWindow": 200000,
+    "contextTokens": 25892,
+    "percentage": 13,
+    "contextWindowIsAuthoritative": true
+  }
+}

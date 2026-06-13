@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780586276568-uz3y7u3ay",
+  "providerId": "claude",
+  "title": "Create Hermes LinkedIn announcement",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780586276569,
+  "updatedAt": 1780656943432,
+  "lastResponseAt": 1780587448351,
+  "sessionId": "d373dfa5-2cec-42f5-8041-782e1e83d3a5",
+  "providerState": {
+    "providerSessionId": "d373dfa5-2cec-42f5-8041-782e1e83d3a5"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 1364,
+    "cacheReadInputTokens": 66459,
+    "contextWindow": 1000000,
+    "contextTokens": 67824,
+    "percentage": 7,
+    "contextWindowIsAuthoritative": true
+  }
+}

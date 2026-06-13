@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781073648062-er0qcs6ak",
+  "providerId": "claude",
+  "title": "Prepare workshop timeboxing and design thinking",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781073648063,
+  "updatedAt": 1781250434203,
+  "lastResponseAt": 1781202476285,
+  "sessionId": "717b861b-4ef2-497d-93ca-dd3958f507bc",
+  "providerState": {
+    "providerSessionId": "717b861b-4ef2-497d-93ca-dd3958f507bc"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 1759,
+    "cacheReadInputTokens": 106452,
+    "contextWindow": 1000000,
+    "contextTokens": 108217,
+    "percentage": 11,
+    "contextWindowIsAuthoritative": true
+  }
+}

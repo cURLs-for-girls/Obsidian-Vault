@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779557366746-p1i71v4nn",
+  "providerId": "claude",
+  "title": "Review flashcards",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779557366746,
+  "updatedAt": 1779799177230,
+  "lastResponseAt": 1779702584009,
+  "sessionId": "a1ceb81a-b680-421e-a468-debe2ef9d71e",
+  "providerState": {
+    "providerSessionId": "a1ceb81a-b680-421e-a468-debe2ef9d71e"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 340,
+    "cacheReadInputTokens": 58862,
+    "contextWindow": 200000,
+    "contextTokens": 59205,
+    "percentage": 30,
+    "contextWindowIsAuthoritative": true
+  }
+}

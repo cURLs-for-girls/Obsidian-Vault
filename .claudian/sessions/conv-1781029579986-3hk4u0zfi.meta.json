@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781029579986-3hk4u0zfi",
+  "providerId": "claude",
+  "title": "Plan Obsidian video structure and script",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781029579986,
+  "updatedAt": 1781083673361,
+  "lastResponseAt": 1781037431652,
+  "sessionId": "b35bc720-6f81-4a65-ae4d-6a66ab0964f9",
+  "providerState": {
+    "providerSessionId": "b35bc720-6f81-4a65-ae4d-6a66ab0964f9"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 1133,
+    "cacheReadInputTokens": 125215,
+    "contextWindow": 1000000,
+    "contextTokens": 126349,
+    "percentage": 13,
+    "contextWindowIsAuthoritative": true
+  }
+}

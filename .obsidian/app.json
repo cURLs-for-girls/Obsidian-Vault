@@ -1,0 +1,12 @@
+{
+  "strictLineBreaks": true,
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "07 Anhänge",
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": true,
+    "margin": "1",
+    "downscalePercent": 100
+  }
+}

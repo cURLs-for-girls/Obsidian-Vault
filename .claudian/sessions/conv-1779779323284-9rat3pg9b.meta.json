@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779779323284-9rat3pg9b",
+  "providerId": "claude",
+  "title": "Log AI market insights from May",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779779323285,
+  "updatedAt": 1779787506781,
+  "lastResponseAt": 1779783053118,
+  "sessionId": "35cf4934-82a0-4065-b2a7-aca469d70c4e",
+  "providerState": {
+    "providerSessionId": "35cf4934-82a0-4065-b2a7-aca469d70c4e"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 1292,
+    "cacheReadInputTokens": 50126,
+    "contextWindow": 1000000,
+    "contextTokens": 51424,
+    "percentage": 5,
+    "contextWindowIsAuthoritative": true
+  }
+}

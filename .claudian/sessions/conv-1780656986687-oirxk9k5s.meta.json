@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780656986687-oirxk9k5s",
+  "providerId": "claude",
+  "title": "Prepare for design thinking workshop",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780656986688,
+  "updatedAt": 1780895469219,
+  "lastResponseAt": 1780657892901,
+  "sessionId": "ea14cf17-0ba2-4bf9-b114-1c170c81fb93",
+  "providerState": {
+    "providerSessionId": "ea14cf17-0ba2-4bf9-b114-1c170c81fb93"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 561,
+    "cacheReadInputTokens": 44772,
+    "contextWindow": 1000000,
+    "contextTokens": 45339,
+    "percentage": 5,
+    "contextWindowIsAuthoritative": true
+  }
+}

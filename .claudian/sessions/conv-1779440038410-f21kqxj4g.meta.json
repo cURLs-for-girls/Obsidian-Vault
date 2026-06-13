@@ -1,0 +1,24 @@
+{
+  "id": "conv-1779440038410-f21kqxj4g",
+  "providerId": "claude",
+  "title": "Compile On-Prem AI project references",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779440038410,
+  "updatedAt": 1779441067927,
+  "lastResponseAt": 1779440656768,
+  "sessionId": "bef18dc0-ba10-452f-b30a-daeaf4e37167",
+  "providerState": {
+    "providerSessionId": "bef18dc0-ba10-452f-b30a-daeaf4e37167"
+  },
+  "currentNote": "01 Inbox/Brain Dump.md",
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 316,
+    "cacheReadInputTokens": 27668,
+    "contextWindow": 200000,
+    "contextTokens": 27985,
+    "percentage": 14,
+    "contextWindowIsAuthoritative": true
+  }
+}

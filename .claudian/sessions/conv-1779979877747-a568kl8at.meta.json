@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779979877747-a568kl8at",
+  "providerId": "claude",
+  "title": "Storage-Übersicht CANCOM AI Factory erstellen",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779979877748,
+  "updatedAt": 1780066003670,
+  "lastResponseAt": 1779991528832,
+  "sessionId": "a85656b7-758b-412f-8584-146277ba3875",
+  "providerState": {
+    "providerSessionId": "a85656b7-758b-412f-8584-146277ba3875"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 3280,
+    "cacheReadInputTokens": 109053,
+    "contextWindow": 1000000,
+    "contextTokens": 112339,
+    "percentage": 11,
+    "contextWindowIsAuthoritative": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781258458584-iwg616kxb",
+  "providerId": "claude",
+  "title": "Organize Shop Integration Plan",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781258458590,
+  "updatedAt": 1781363272329,
+  "lastResponseAt": 1781363272329,
+  "sessionId": "410ff3a7-a571-48c1-ab21-c5e13ddae245",
+  "providerState": {
+    "providerSessionId": "410ff3a7-a571-48c1-ab21-c5e13ddae245"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 339,
+    "cacheReadInputTokens": 34612,
+    "contextWindow": 200000,
+    "contextTokens": 34952,
+    "percentage": 17,
+    "contextWindowIsAuthoritative": true
+  }
+}

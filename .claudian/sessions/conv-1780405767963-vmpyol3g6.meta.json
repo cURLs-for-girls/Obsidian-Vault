@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780405767963-vmpyol3g6",
+  "providerId": "claude",
+  "title": "Analyze Nvidia DSX Air in Presales Context",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780405767964,
+  "updatedAt": 1780481617185,
+  "lastResponseAt": 1780406144652,
+  "sessionId": "e36ff4f7-ab83-4d3e-90bb-39f5d4bdb81a",
+  "providerState": {
+    "providerSessionId": "e36ff4f7-ab83-4d3e-90bb-39f5d4bdb81a"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 4076,
+    "cacheReadInputTokens": 60349,
+    "contextWindow": 1000000,
+    "contextTokens": 64431,
+    "percentage": 6,
+    "contextWindowIsAuthoritative": true
+  }
+}

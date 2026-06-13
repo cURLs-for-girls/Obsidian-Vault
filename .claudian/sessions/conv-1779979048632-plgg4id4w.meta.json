@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779979048632-plgg4id4w",
+  "providerId": "claude",
+  "title": "Trainingswiki mit heutigen Übungen aktualisieren",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779979048632,
+  "updatedAt": 1780036543594,
+  "lastResponseAt": 1779987592254,
+  "sessionId": "ae65d46f-324e-4c35-8977-95a237bdd972",
+  "providerState": {
+    "providerSessionId": "ae65d46f-324e-4c35-8977-95a237bdd972"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 804,
+    "cacheReadInputTokens": 82146,
+    "contextWindow": 1000000,
+    "contextTokens": 82951,
+    "percentage": 8,
+    "contextWindowIsAuthoritative": true
+  }
+}

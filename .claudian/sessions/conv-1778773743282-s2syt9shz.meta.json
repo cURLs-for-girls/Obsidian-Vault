@@ -1,0 +1,26 @@
+{
+  "id": "conv-1778773743282-s2syt9shz",
+  "providerId": "claude",
+  "title": "hi",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1778773743286,
+  "updatedAt": 1778786669927,
+  "lastResponseAt": 1778786538839,
+  "sessionId": "ef41aaab-8866-489a-97e1-dda2c698179e",
+  "providerState": {
+    "providerSessionId": "ef41aaab-8866-489a-97e1-dda2c698179e"
+  },
+  "externalContextPaths": [
+    "/Users/eva.doelle/Library/CloudStorage/OneDrive-CANCOMGmbH/AI/1_Presales/AI Pitch Unterlagen/AI Logo"
+  ],
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 192,
+    "cacheReadInputTokens": 63652,
+    "contextWindow": 200000,
+    "contextTokens": 63847,
+    "percentage": 32,
+    "contextWindowIsAuthoritative": true
+  }
+}

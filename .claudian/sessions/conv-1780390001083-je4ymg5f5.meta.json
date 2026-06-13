@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780390001083-je4ymg5f5",
+  "providerId": "claude",
+  "title": "Streamline LinkedIn Content Generation",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780390001084,
+  "updatedAt": 1780473255860,
+  "lastResponseAt": 1780391292098,
+  "sessionId": "56d1e605-9a1b-4252-96f6-c7eea7eab2dd",
+  "providerState": {
+    "providerSessionId": "56d1e605-9a1b-4252-96f6-c7eea7eab2dd"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 1289,
+    "cacheReadInputTokens": 43634,
+    "contextWindow": 1000000,
+    "contextTokens": 44924,
+    "percentage": 4,
+    "contextWindowIsAuthoritative": true
+  }
+}

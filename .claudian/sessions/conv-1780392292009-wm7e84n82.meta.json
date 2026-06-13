@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780392292009-wm7e84n82",
+  "providerId": "claude",
+  "title": "Automate daily notes at session end",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780392292009,
+  "updatedAt": 1780405728809,
+  "lastResponseAt": 1780394586564,
+  "sessionId": "d50d0f82-b638-4e41-9ed1-597e4a0b0afd",
+  "providerState": {
+    "providerSessionId": "d50d0f82-b638-4e41-9ed1-597e4a0b0afd"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 309,
+    "cacheReadInputTokens": 81430,
+    "contextWindow": 1000000,
+    "contextTokens": 81740,
+    "percentage": 8,
+    "contextWindowIsAuthoritative": true
+  }
+}

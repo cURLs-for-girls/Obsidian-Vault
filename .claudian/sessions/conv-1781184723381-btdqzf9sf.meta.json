@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781184723381-btdqzf9sf",
+  "providerId": "claude",
+  "title": "Check Claudian plugin Fable 5 support",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781184723381,
+  "updatedAt": 1781249412694,
+  "lastResponseAt": 1781184891882,
+  "sessionId": "1270d32d-4528-47f9-8897-dd1ca9e3b505",
+  "providerState": {
+    "providerSessionId": "1270d32d-4528-47f9-8897-dd1ca9e3b505"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 2632,
+    "cacheReadInputTokens": 31969,
+    "contextWindow": 1000000,
+    "contextTokens": 34602,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

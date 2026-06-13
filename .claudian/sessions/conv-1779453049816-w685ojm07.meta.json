@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779453049816-w685ojm07",
+  "providerId": "claude",
+  "title": "Infrastruktur-Sizer im Shop integrieren",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779453049817,
+  "updatedAt": 1779783861774,
+  "lastResponseAt": 1779464687801,
+  "sessionId": "f5d9ee79-1e4f-47fe-b964-a67a8fe8b665",
+  "providerState": {
+    "providerSessionId": "f5d9ee79-1e4f-47fe-b964-a67a8fe8b665"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 1070,
+    "cacheReadInputTokens": 146109,
+    "contextWindow": 200000,
+    "contextTokens": 147180,
+    "percentage": 74,
+    "contextWindowIsAuthoritative": true
+  }
+}

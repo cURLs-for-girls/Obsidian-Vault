@@ -1,0 +1,8 @@
+{
+  "apiDomain": "https://api.plaud.ai",
+  "syncFolder": "01 Inbox/Plaud",
+  "syncOnStartup": true,
+  "updateExisting": true,
+  "filenamePattern": "plaud-{date}-{title}",
+  "lastSyncAtMs": 0
+}

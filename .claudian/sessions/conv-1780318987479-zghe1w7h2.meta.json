@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780318987479-zghe1w7h2",
+  "providerId": "claude",
+  "title": "Explain Plaud AI connector",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780318987480,
+  "updatedAt": 1780319689192,
+  "lastResponseAt": 1780319014273,
+  "sessionId": "389e4a2f-6466-427a-8229-82c1b77477e1",
+  "providerState": {
+    "providerSessionId": "389e4a2f-6466-427a-8229-82c1b77477e1"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 5,
+    "cacheCreationInputTokens": 2660,
+    "cacheReadInputTokens": 30723,
+    "contextWindow": 1000000,
+    "contextTokens": 33388,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

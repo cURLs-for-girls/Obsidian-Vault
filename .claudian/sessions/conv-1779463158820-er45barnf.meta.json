@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779463158820-er45barnf",
+  "providerId": "claude",
+  "title": "Hersteller-Referenzarchitekturen analysieren",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779463158821,
+  "updatedAt": 1779476341267,
+  "lastResponseAt": 1779463645242,
+  "sessionId": "f53c8d15-bb00-4905-af67-1180384c4a3b",
+  "providerState": {
+    "providerSessionId": "f53c8d15-bb00-4905-af67-1180384c4a3b"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 472,
+    "cacheReadInputTokens": 53585,
+    "contextWindow": 200000,
+    "contextTokens": 54058,
+    "percentage": 27,
+    "contextWindowIsAuthoritative": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779188152604-rrqutvh0h",
+  "providerId": "claude",
+  "title": "Complete Daily Note for 2026-05-18",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779188152604,
+  "updatedAt": 1779355718402,
+  "lastResponseAt": 1779193498876,
+  "sessionId": "34f7733c-07e6-4465-a6c4-77957db72a6c",
+  "providerState": {
+    "providerSessionId": "34f7733c-07e6-4465-a6c4-77957db72a6c"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 1485,
+    "cacheReadInputTokens": 24737,
+    "contextWindow": 200000,
+    "contextTokens": 26223,
+    "percentage": 13,
+    "contextWindowIsAuthoritative": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779113515260-9vegihzpi",
+  "providerId": "claude",
+  "title": "Generate flashcards on data tiering",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779113515267,
+  "updatedAt": 1779177389728,
+  "lastResponseAt": 1779172719885,
+  "sessionId": "f18d0e72-fd10-4601-a615-dfc3b5c00d0c",
+  "providerState": {
+    "providerSessionId": "f18d0e72-fd10-4601-a615-dfc3b5c00d0c"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 417,
+    "cacheReadInputTokens": 36017,
+    "contextWindow": 200000,
+    "contextTokens": 36437,
+    "percentage": 18,
+    "contextWindowIsAuthoritative": true
+  }
+}

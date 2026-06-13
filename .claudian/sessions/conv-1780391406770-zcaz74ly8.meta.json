@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780391406770-zcaz74ly8",
+  "providerId": "claude",
+  "title": "Hermes Multi-Agent-System aufsetzen",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780391406771,
+  "updatedAt": 1780424840348,
+  "lastResponseAt": 1780392520438,
+  "sessionId": "b29d849f-07fa-4909-a6b3-06a2e31fa314",
+  "providerState": {
+    "providerSessionId": "b29d849f-07fa-4909-a6b3-06a2e31fa314"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 3506,
+    "cacheReadInputTokens": 57196,
+    "contextWindow": 1000000,
+    "contextTokens": 60703,
+    "percentage": 6,
+    "contextWindowIsAuthoritative": true
+  }
+}

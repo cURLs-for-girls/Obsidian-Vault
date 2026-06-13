@@ -1,0 +1,24 @@
+{
+  "id": "conv-1779368344397-5ojvhq8jp",
+  "providerId": "claude",
+  "title": "Investigate Barkhausen H100 Q&A deployment",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779368344397,
+  "updatedAt": 1779439815042,
+  "lastResponseAt": 1779368372702,
+  "sessionId": "417808f0-1881-4205-a866-6f9ec6840889",
+  "providerState": {
+    "providerSessionId": "417808f0-1881-4205-a866-6f9ec6840889"
+  },
+  "currentNote": "01 Inbox/Brain Dump.md",
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 617,
+    "cacheReadInputTokens": 18883,
+    "contextWindow": 200000,
+    "contextTokens": 19501,
+    "percentage": 10,
+    "contextWindowIsAuthoritative": true
+  }
+}

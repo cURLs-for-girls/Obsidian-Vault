@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779036885610-gzirqvjyp",
+  "providerId": "claude",
+  "title": "Continue AI Storage research",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779036885612,
+  "updatedAt": 1779094319453,
+  "lastResponseAt": 1779040841918,
+  "sessionId": "200559ae-41cd-45a8-9b88-f3289a71aeb3",
+  "providerState": {
+    "providerSessionId": "200559ae-41cd-45a8-9b88-f3289a71aeb3"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 282,
+    "cacheReadInputTokens": 46135,
+    "contextWindow": 200000,
+    "contextTokens": 46420,
+    "percentage": 23,
+    "contextWindowIsAuthoritative": true
+  }
+}

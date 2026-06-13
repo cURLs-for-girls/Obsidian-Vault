@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780063965640-tdpoh5076",
+  "providerId": "claude",
+  "title": "Referenzarchitekturen auflisten",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780063965649,
+  "updatedAt": 1780299043882,
+  "lastResponseAt": 1780066041369,
+  "sessionId": "6b8c29d5-b57d-4047-9f71-d10a1495b9f2",
+  "providerState": {
+    "providerSessionId": "6b8c29d5-b57d-4047-9f71-d10a1495b9f2"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 6875,
+    "cacheReadInputTokens": 158194,
+    "contextWindow": 1000000,
+    "contextTokens": 165075,
+    "percentage": 17,
+    "contextWindowIsAuthoritative": true
+  }
+}

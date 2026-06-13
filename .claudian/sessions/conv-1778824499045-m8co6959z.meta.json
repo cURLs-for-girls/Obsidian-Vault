@@ -1,0 +1,24 @@
+{
+  "id": "conv-1778824499045-m8co6959z",
+  "providerId": "claude",
+  "title": "Request server quotes for AI bundles",
+  "titleGenerationStatus": "success",
+  "createdAt": 1778824499050,
+  "updatedAt": 1778838842520,
+  "lastResponseAt": 1778837285893,
+  "sessionId": "68557846-cc93-4c5d-9eee-fcf7afe37de1",
+  "providerState": {
+    "providerSessionId": "68557846-cc93-4c5d-9eee-fcf7afe37de1"
+  },
+  "currentNote": "01 Inbox/Brain Dump.md",
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 814,
+    "cacheReadInputTokens": 38606,
+    "contextWindow": 200000,
+    "contextTokens": 39423,
+    "percentage": 20,
+    "contextWindowIsAuthoritative": true
+  }
+}

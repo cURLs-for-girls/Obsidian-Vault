@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780319711889-9fh5do4bj",
+  "providerId": "claude",
+  "title": "Speicherort von Bildschirmaufnahmen finden",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780319711889,
+  "updatedAt": 1780385333635,
+  "lastResponseAt": 1780319730199,
+  "sessionId": "af239e77-890e-41ab-9331-61ec8a5e18ce",
+  "providerState": {
+    "providerSessionId": "af239e77-890e-41ab-9331-61ec8a5e18ce"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 14456,
+    "cacheReadInputTokens": 16280,
+    "contextWindow": 1000000,
+    "contextTokens": 30742,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

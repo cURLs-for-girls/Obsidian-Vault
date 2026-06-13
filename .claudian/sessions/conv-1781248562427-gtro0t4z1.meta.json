@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781248562427-gtro0t4z1",
+  "providerId": "claude",
+  "title": "Create data platform conversation guide",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781248562428,
+  "updatedAt": 1781256771302,
+  "lastResponseAt": 1781249071248,
+  "sessionId": "4e456686-e50d-4e06-b091-f175d3340cff",
+  "providerState": {
+    "providerSessionId": "4e456686-e50d-4e06-b091-f175d3340cff"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 774,
+    "cacheReadInputTokens": 43682,
+    "contextWindow": 200000,
+    "contextTokens": 44457,
+    "percentage": 22,
+    "contextWindowIsAuthoritative": true
+  }
+}

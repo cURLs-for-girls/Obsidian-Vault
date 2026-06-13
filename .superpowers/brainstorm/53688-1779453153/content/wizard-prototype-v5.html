@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CANCOM · AI Infrastructure Sizer</title>
+<style>
+  :root {
+    --red:       #DA002C;
+    --red-hot:   #FF0034;
+    --dark:      #0D0714;
+    --dark-mid:  #1A0E2A;
+    --dark-card: #150B22;
+    --surface:   #1E1230;
+    --border:    #2E1D45;
+    --border-lt: #3D2858;
+    --text:      #F3F0FA;
+    --muted:     #A89EC0;
+    --dim:       #6B5F85;
+    --gold:      #F5C542;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--dark); color: var(--text);
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(135deg, #0D0714 0%, #1A0E2A 45%, #2D0A1E 100%);
+    padding: 16px 32px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+    position: sticky; top: 0; z-index: 20; overflow: hidden;
+  }
+  header::before {
+    content: ""; position: absolute; top: -50px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(218,0,44,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-logo { position: relative; z-index: 1; }
+  .header-logo img {
+    height: 26px; display: block;
+    filter: drop-shadow(0 2px 8px rgba(218,0,44,.4));
+    transition: filter .25s ease, transform .25s ease; cursor: pointer;
+  }
+  .header-logo img:hover {
+    filter: drop-shadow(0 0 16px rgba(255,0,52,.85)) drop-shadow(0 2px 6px rgba(218,0,44,.5));
+    transform: translateY(-1px) scale(1.05);
+  }
+
+  /* Wizard wrap */
+  .wizard-wrap {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; padding: 40px 20px 60px;
+    background:
+      radial-gradient(ellipse at 80% 10%, rgba(218,0,44,.07) 0%, transparent 55%),
+      radial-gradient(ellipse at 10% 90%, rgba(138,21,56,.07) 0%, transparent 55%),
+      var(--dark);
+  }
+  .wizard-card {
+    width: 100%; max-width: 720px;
+    background: var(--dark-card); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.03);
+  }
+
+  /* Progress */
+  .progress-bar { height: 3px; background: rgba(255,255,255,.05); }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--red) 0%, var(--red-hot) 100%);
+    transition: width .4s ease; box-shadow: 0 0 10px rgba(255,0,52,.5);
+  }
+  .step-indicator {
+    padding: 16px 32px 0;
+    font-size: 11px; font-weight: 700; color: var(--dim);
+    letter-spacing: .1em; text-transform: uppercase;
+  }
+
+  /* Screens */
+  .screen { display: none; padding: 24px 32px 32px; }
+  .screen.active { display: block; }
+  .screen h2 { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
+  .screen .sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.55; }
+
+  /* Intro hero (S0) */
+  .intro-hero {
+    background: linear-gradient(135deg, #100820 0%, #1A0E2A 50%, #2D0A1E 100%);
+    margin: -24px -32px 24px; padding: 36px 32px;
+    position: relative; overflow: hidden; border-bottom: 1px solid var(--border);
+  }
+  .intro-hero::before {
+    content: ""; position: absolute; top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(218,0,44,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .intro-hero h1 {
+    position: relative; z-index: 1;
+    font-size: 26px; font-weight: 800; color: #fff;
+    line-height: 1.2; margin-bottom: 10px; letter-spacing: -.01em;
+  }
+  .intro-hero h1 .hl { color: var(--red-hot); }
+  .intro-hero p {
+    position: relative; z-index: 1;
+    font-size: 13.5px; color: var(--muted); line-height: 1.6; max-width: 480px;
+  }
+  .intro-hero p strong { color: var(--text); }
+  .stats-row { display: flex; gap: 32px; margin: 22px 0 24px; position: relative; z-index: 1; }
+  .stat-num { font-size: 28px; font-weight: 900; color: #fff; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 3px; font-weight: 600; letter-spacing: .04em; }
+
+  /* Tiles */
+  .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .options-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 14px; cursor: pointer;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    position: relative; overflow: hidden;
+  }
+  .tile::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--red) 0%, var(--red-hot) 100%);
+    opacity: 0; transition: opacity .2s ease;
+  }
+  .tile:hover {
+    transform: translateY(-4px) scale(1.012);
+    border-color: rgba(218,0,44,.5);
+    box-shadow: 0 12px 32px rgba(218,0,44,.18), 0 4px 12px rgba(0,0,0,.5);
+  }
+  .tile:hover::before { opacity: 1; }
+  .tile-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .tile-icon { font-size: 20px; flex-shrink: 0; }
+  .tile-title { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.2; }
+  .tile-model {
+    display: inline-block;
+    background: rgba(218,0,44,.10); border: 1px solid rgba(218,0,44,.25);
+    border-radius: 5px; padding: 2px 9px;
+    font-size: 10.5px; font-weight: 700; color: #E878A8;
+    letter-spacing: .04em; margin-bottom: 7px; width: fit-content;
+  }
+  .tile-desc { font-size: 12px; color: var(--muted); line-height: 1.45; }
+  .tile-token { font-size: 10.5px; color: var(--dim); margin-top: 5px; font-weight: 600; }
+
+  /* Buttons */
+  .btn-primary {
+    position: relative; z-index: 1;
+    background: linear-gradient(135deg, var(--red) 0%, var(--red-hot) 100%);
+    color: white; border: none; border-radius: 10px;
+    padding: 14px 32px; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: all .2s; width: 100%; font-family: inherit;
+    box-shadow: 0 4px 20px rgba(218,0,44,.3);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(218,0,44,.45); }
+  .back-btn {
+    background: none; border: none; color: var(--dim); font-size: 12px;
+    cursor: pointer; padding: 0; margin-bottom: 14px;
+    display: inline-flex; align-items: center; gap: 4px;
+    font-family: inherit; transition: color .15s;
+  }
+  .back-btn:hover { color: var(--muted); }
+
+  /* Model hint */
+  .model-hint {
+    background: rgba(245,197,66,.06); border: 1px solid rgba(245,197,66,.2);
+    border-radius: 10px; padding: 12px 14px; margin-bottom: 16px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .model-hint-text { font-size: 12px; color: var(--muted); line-height: 1.55; }
+  .model-hint-text strong { color: var(--gold); display: block; margin-bottom: 4px; font-size: 12.5px; }
+  .model-logos { display: flex; gap: 5px; margin-top: 7px; flex-wrap: wrap; }
+  .model-logo-tag {
+    background: rgba(245,197,66,.08); border: 1px solid rgba(245,197,66,.2);
+    border-radius: 5px; padding: 2px 8px;
+    font-size: 10px; font-weight: 700; color: #E8C87A; letter-spacing: .04em;
+  }
+
+  /* Result */
+  .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .result-teaser {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px;
+  }
+  .result-label { font-size: 10px; font-weight: 700; color: var(--dim); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
+  .result-value { font-size: 17px; font-weight: 800; color: var(--text); line-height: 1.2; }
+  .result-sub { font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+
+  .result-locked {
+    background: linear-gradient(135deg, #0A0514, #120820);
+    border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px; margin-bottom: 16px; position: relative; overflow: hidden;
+  }
+  .locked-content { filter: blur(6px); user-select: none; pointer-events: none; }
+  .locked-overlay {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background: rgba(13,7,20,.55); backdrop-filter: blur(3px);
+    color: white; text-align: center; padding: 16px;
+  }
+  .lock-icon { font-size: 28px; margin-bottom: 7px; }
+  .locked-overlay h3 { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+  .locked-overlay p { font-size: 12px; color: var(--muted); }
+  .locked-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+    color: var(--text); font-size: 13px;
+  }
+  .locked-row:last-child { border-bottom: none; }
+  .locked-row-label { color: var(--muted); }
+  .locked-row-val { font-weight: 700; }
+  .locked-row.gold {
+    background: rgba(245,197,66,.08); border-radius: 6px;
+    padding: 9px 8px; margin: 2px -4px; border-bottom: none;
+  }
+  .locked-row.gold .locked-row-label { color: var(--gold); }
+  .locked-row.gold .locked-row-val { color: #FDE68A; }
+
+  /* Email gate */
+  .email-gate {
+    background: var(--surface); border: 1px solid rgba(218,0,44,.35);
+    border-radius: 12px; padding: 20px;
+  }
+  .email-gate h3 { font-size: 15px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+  .email-gate p { font-size: 12px; color: var(--muted); margin-bottom: 14px; line-height: 1.55; }
+  .email-row { display: flex; gap: 8px; }
+  .email-input {
+    flex: 1; background: var(--dark-card); border: 1px solid var(--border-lt);
+    border-radius: 8px; padding: 11px 13px; font-size: 13px;
+    color: var(--text); outline: none; transition: border-color .15s; font-family: inherit;
+  }
+  .email-input::placeholder { color: var(--dim); }
+  .email-input:focus { border-color: rgba(218,0,44,.5); box-shadow: 0 0 0 3px rgba(218,0,44,.08); }
+  .btn-submit {
+    background: linear-gradient(135deg, var(--red) 0%, var(--red-hot) 100%);
+    color: white; border: none; border-radius: 8px; padding: 11px 18px;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    white-space: nowrap; font-family: inherit; transition: all .2s;
+  }
+  .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(218,0,44,.4); }
+
+  /* Thank you */
+  .thankyou-icon { font-size: 52px; text-align: center; margin-bottom: 14px; }
+  .thankyou-box {
+    background: rgba(118,185,0,.06); border: 1px solid rgba(118,185,0,.2);
+    border-radius: 12px; padding: 20px; margin-bottom: 18px;
+  }
+  .thankyou-box p { font-size: 13px; color: #BFE08A; line-height: 1.7; }
+  .thankyou-box strong { color: #fff; }
+
+  /* Chips */
+  .summary-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+  .chip {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; padding: 4px 11px; font-size: 11px; font-weight: 600; color: var(--muted);
+  }
+  .chip em { color: var(--red-hot); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIGJ5IE1hcnN1cGlsYW1pIC0tPgo8c3ZnCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnMzQyOSIKICAgd2lkdGg9IjEwMjQiCiAgIGhlaWdodD0iMTcyIgogICB2aWV3Qm94PSItMC43NDM5OTk5NyAtMC43NDM5OTk5NyAxNTYuMDg4MDA5OTQgMjYuMjg3OTk4OTQiPgogIDxkZWZzCiAgICAgaWQ9ImRlZnMzNDMxIiAvPgogIDxwYXRoCiAgICAgc3R5bGU9ImZpbGw6I2RiMDUyYztmaWxsLW9wYWNpdHk6MSIKICAgICBjbGlwLXBhdGg9Im5vbmUiCiAgICAgaWQ9InBhdGgzMzY4IgogICAgIGQ9Im0gNDEuNiwyNC4yIDcuNSwwIC0xMC4yLC0yMy45IC02LjQsMCAtOS45LDIzLjkgNy4yLDAgNS44LC0xNS40IDYsMTUuNCB6IG0gNzguMywtMTEuOSBjIDAsMy41IC0yLjQsNi41IC02LjEsNi41IC0zLjYsMCAtNi4xLC0zIC02LjEsLTYuNSAwLC0zLjUgMi40LC02LjUgNiwtNi41IDMuNiwwIDYuMiwzLjEgNi4yLDYuNSBtIDYuNywwLjEgQyAxMjYuNiw1LjUgMTIxLjMsMCAxMTMuOCwwIDEwNi40LDAgMTAxLDUuNiAxMDEsMTIuNCBjIDAsNi45IDUuMywxMi40IDEyLjgsMTIuNCA3LjQsMCAxMi44LC01LjYgMTIuOCwtMTIuNCBNIDgzLDEyLjUgQyA4Myw5IDg1LjQsNiA4OC45LDYgYyAxLjIsMCAyLjMsMC4zIDMuMiwwLjggTCA5NC43LDEuNSBDIDkzLjUsMC43IDkxLjUsMCA4OC44LDAgODEuNiwwIDc2LjMsNS42IDc2LjMsMTIuNCBjIDAsNy4yIDUsMTIuMyAxMi41LDEyLjMgNi44LDAgMTAuMywtNC4yIDExLjQsLTguMyBsIC01LjQsLTIuMiBjIC0wLjcsMi4zIC0yLjUsNC42IC01LjcsNC42IEMgODUuNCwxOC44IDgzLDE2IDgzLDEyLjUgbSAtNzYuMiwwIEMgNi44LDkgOS4yLDYgMTIuNyw2IDEzLjksNiAxNSw2LjMgMTUuOSw2LjggTCAxOC41LDEuNSBDIDE3LjMsMC43IDE1LjMsMCAxMi42LDAgNS4zLDAgMCw1LjYgMCwxMi40IGMgMCw3LjIgNSwxMi4zIDEyLjUsMTIuMyA2LjgsMCAxMC4zLC00LjIgMTEuNCwtOC4zIGwgLTUuNCwtMi4yIGMgLTAuNywyLjMgLTIuNSw0LjYgLTUuNyw0LjYgLTMuNiwwIC02LC0yLjggLTYsLTYuMyBtIDYwLjksMTEuNyA1LjcsMCAwLC0yMy43IC02LjQsMCAwLDEzLjEgLTkuOSwtMTMuMSAtNi4xLDAgMCwyMy44IDYuNCwwIDAsLTEzLjUgMTAuMywxMy40IHogbSA4Ni45LDAgMCwtMjMuNyAtNywwIC01LjcsOS4yIC01LjcsLTkuMiAtNywwIDAsMjMuOCA2LjUsMCAwLC0xMy42IDYuMSw5LjIgMC4xLDAgNi4xLC05LjMgMCwxMy43IDYuNiwtMC4xIDAsMCB6IgogICAgIGNsYXNzPSJzdDAiIC8+Cjwvc3ZnPgo8IS0tIHZlcnNpb246IDIwMTcxMjIzLCBvcmlnaW5hbCBzaXplOiAxNTQuNjAwMDEgMjQuNzk5OTk5LCBib3JkZXI6IDMlIC0tPgo=" alt="CANCOM">
+  </div>
+</header>
+
+<div class="wizard-wrap">
+  <div class="wizard-card">
+    <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+    <div class="step-indicator" id="stepInd"></div>
+
+    <!-- S0: Intro -->
+    <div class="screen active" id="s0">
+      <div class="intro-hero">
+        <h1>Finden Sie Ihre<br><span class="hl">AI-Infrastruktur</span></h1>
+        <p>4 kurze Fragen — und Sie erhalten eine maßgeschneiderte Empfehlung für <strong>GPU, Server, KI-Modell</strong> und den vollständigen AI Factory Stack.</p>
+        <div class="stats-row">
+          <div class="stat"><div class="stat-num">4</div><div class="stat-label">Fragen</div></div>
+          <div class="stat"><div class="stat-num">2 min</div><div class="stat-label">Zeitaufwand</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Kostenlos</div></div>
+        </div>
+        <p style="margin-bottom:22px;">Wir dimensionieren GPU-Leistung und Server-Konfiguration — und empfehlen das optimale KI-Modell, abgestimmt auf Ihren Anwendungsfall.</p>
+        <button class="btn-primary" onclick="goTo(1)">Jetzt Sizing starten &#8594;</button>
+      </div>
+    </div>
+
+    <!-- S1: Use Case -->
+    <div class="screen" id="s1">
+      <button class="back-btn" onclick="goTo(0)">&#8592; Zurück</button>
+      <h2>Was beschreibt Ihr Vorhaben am besten?</h2>
+      <p class="sub">Wählen Sie den Anwendungsfall — der Modell-Typ folgt daraus automatisch.</p>
+      <div class="model-hint">
+        <span style="font-size:17px;flex-shrink:0">&#128161;</span>
+        <div class="model-hint-text">
+          <strong>Kein konkretes Modell im Kopf? Kein Problem.</strong>
+          Unsere Experten beobachten wöchentlich den KI-Markt und empfehlen das optimale Modell für Ihren Use Case.
+          <div class="model-logos">
+            <span class="model-logo-tag">Claude</span>
+            <span class="model-logo-tag">GPT-4o</span>
+            <span class="model-logo-tag">Llama</span>
+            <span class="model-logo-tag">Gemini</span>
+            <span class="model-logo-tag">Mistral</span>
+            <span class="model-logo-tag">+ mehr</span>
+          </div>
+        </div>
+      </div>
+      <div class="options-grid">
+        <div class="tile" onclick="pick('usecase','Chatbot / Assistent','Standard Chat-Modell',2)">
+          <div class="tile-top"><div class="tile-icon">&#128172;</div><div class="tile-title">Chatbot / Assistent</div></div>
+          <div class="tile-model">Standard Chat-Modell</div>
+          <div class="tile-desc">Service Desk KI, Kunden-Chatbot, interner FAQ-Assistent</div>
+        </div>
+        <div class="tile" onclick="pick('usecase','Dokumente &amp; Wissen','Reasoning-Modell',2)">
+          <div class="tile-top"><div class="tile-icon">&#129504;</div><div class="tile-title">Dokumente &amp; Wissen</div></div>
+          <div class="tile-model">Reasoning-Modell</div>
+          <div class="tile-desc">Vertragsanalyse, Compliance-Prüfung, komplexe Dokumentenauswertung</div>
+        </div>
+        <div class="tile" onclick="pick('usecase','Coding Assistent','Coding-Modell',2)">
+          <div class="tile-top"><div class="tile-icon">&#128187;</div><div class="tile-title">Coding Assistent</div></div>
+          <div class="tile-model">Coding-Modell</div>
+          <div class="tile-desc">On-Premise Alternative zu GitHub Copilot für Entwicklungsteams</div>
+        </div>
+        <div class="tile" onclick="pick('usecase','Prozesse automatisieren','Agent-Modell',2)">
+          <div class="tile-top"><div class="tile-icon">&#128279;</div><div class="tile-title">Prozesse automatisieren</div></div>
+          <div class="tile-model">Agent-Modell</div>
+          <div class="tile-desc">Mehrstufige Workflows — z.B. Bewerbung eingeht &#8594; KI screent &#8594; Termin gebucht</div>
+        </div>
+        <div class="tile" onclick="pick('usecase','Bild &amp; Dokumente verstehen','Multimodal-Modell',2)">
+          <div class="tile-top"><div class="tile-icon">&#128065;&#65039;</div><div class="tile-title">Bild &amp; Dokumente verstehen</div></div>
+          <div class="tile-model">Multimodal-Modell</div>
+          <div class="tile-desc">Rechnungs-Scanning, Maschinenfoto-Auswertung, technische Zeichnungen</div>
+        </div>
+        <div class="tile" onclick="pick('usecase','Computer Vision / Video','Computer Vision',2)">
+          <div class="tile-top"><div class="tile-icon">&#128247;</div><div class="tile-title">Computer Vision / Video</div></div>
+          <div class="tile-model">Computer Vision</div>
+          <div class="tile-desc">Qualitätskontrolle, Kamera-Auswertung, Videoanalyse in Echtzeit</div>
+        </div>
+      </div>
+      <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border);text-align:center;">
+        <p style="font-size:12px;color:var(--dim);margin-bottom:10px;">Noch keinen konkreten Use Case?</p>
+        <a href="https://www.cancom.de/leistungen/ai-discovery-workshop/" target="_blank"
+           style="display:inline-flex;align-items:center;gap:8px;
+                  background:rgba(245,197,66,.08);border:1px solid rgba(245,197,66,.22);
+                  border-radius:10px;padding:10px 20px;text-decoration:none;
+                  font-size:13px;font-weight:700;color:var(--gold);transition:all .2s;"
+           onmouseover="this.style.background='rgba(245,197,66,.15)';this.style.transform='translateY(-1px)'"
+           onmouseout="this.style.background='rgba(245,197,66,.08)';this.style.transform='none'">
+          &#10022; Zum AI Discovery Workshop &#8594;
+        </a>
+      </div>
+    </div>
+
+    <!-- S2: Concurrent Users -->
+    <div class="screen" id="s2">
+      <button class="back-btn" onclick="goTo(1)">&#8592; Zurück</button>
+      <h2>Wie viele Personen nutzen es gleichzeitig?</h2>
+      <p class="sub">Concurrent Users — wie viele Anfragen gleichzeitig ankommen. Einer der entscheidenden Faktoren für die GPU-Dimensionierung.</p>
+      <div class="options-grid">
+        <div class="tile" onclick="pick('users','1&#8211;10 Nutzer',null,3)">
+          <div class="tile-top"><div class="tile-icon">&#128100;</div><div class="tile-title">1&#8211;10 Nutzer</div></div>
+          <div class="tile-desc">Einzelperson, kleines Team, Pilotprojekt oder Entwicklungsumgebung</div>
+        </div>
+        <div class="tile" onclick="pick('users','10&#8211;50 Nutzer',null,3)">
+          <div class="tile-top"><div class="tile-icon">&#128101;</div><div class="tile-title">10&#8211;50 Nutzer</div></div>
+          <div class="tile-desc">Abteilung oder mittelgroßes Team im Produktiveinsatz</div>
+        </div>
+        <div class="tile" onclick="pick('users','50&#8211;200 Nutzer',null,3)">
+          <div class="tile-top"><div class="tile-icon">&#127970;</div><div class="tile-title">50&#8211;200 Nutzer</div></div>
+          <div class="tile-desc">Mehrere Abteilungen, unternehmensweiter Rollout</div>
+        </div>
+        <div class="tile" onclick="pick('users','200+ Nutzer',null,3)">
+          <div class="tile-top"><div class="tile-icon">&#127981;</div><div class="tile-title">200+ Nutzer</div></div>
+          <div class="tile-desc">Großunternehmen oder kundenorientierter / öffentlicher Dienst</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S3: Anfragegröße -->
+    <div class="screen" id="s3">
+      <button class="back-btn" onclick="goTo(2)">&#8592; Zurück</button>
+      <h2>Wie groß sind Ihre typischen Anfragen?</h2>
+      <p class="sub">Die Kontextlänge bestimmt, wie viel GPU-Speicher pro Anfrage belegt wird — und damit wie viele Nutzer gleichzeitig bedient werden können.</p>
+      <div class="options-grid cols-3">
+        <div class="tile" onclick="pick('context','Kurze Fragen',null,4)">
+          <div class="tile-top"><div class="tile-icon">&#128172;</div><div class="tile-title">Kurze Fragen</div></div>
+          <div class="tile-desc">Single-Turn FAQ, kurze Befehle, Chat-Nachrichten</div>
+          <div class="tile-token">bis ~4.000 Token</div>
+        </div>
+        <div class="tile" onclick="pick('context','Dokumente',null,4)">
+          <div class="tile-top"><div class="tile-icon">&#128196;</div><div class="tile-title">Dokumente</div></div>
+          <div class="tile-desc">Verträge, Berichte, Gespräche mit Verlauf</div>
+          <div class="tile-token">4.000&#8211;32.000 Token</div>
+        </div>
+        <div class="tile" onclick="pick('context','Große Dateien',null,4)">
+          <div class="tile-top"><div class="tile-icon">&#128218;</div><div class="tile-title">Große Dateien</div></div>
+          <div class="tile-desc">Dokumentenbibliotheken, Code-Basen, lange Analysen</div>
+          <div class="tile-token">über 32.000 Token</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S4: Latenz -->
+    <div class="screen" id="s4">
+      <button class="back-btn" onclick="goTo(3)">&#8592; Zurück</button>
+      <h2>Wie schnell muss die Antwort kommen?</h2>
+      <p class="sub">Latenz beeinflusst die Wahl zwischen schnellen Inferenz-Chips und hochdichten Cluster-Systemen — ein oft unterschätzter Sizing-Faktor.</p>
+      <div class="options-grid cols-3">
+        <div class="tile" onclick="pick('latency','Echtzeit',null,5)">
+          <div class="tile-top"><div class="tile-icon">&#9889;</div><div class="tile-title">Echtzeit</div></div>
+          <div class="tile-desc">Nutzer wartet aktiv — jede Sekunde zählt</div>
+          <div class="tile-token">z.B. Live-Chatbot, Copilot</div>
+        </div>
+        <div class="tile" onclick="pick('latency','Normal',null,5)">
+          <div class="tile-top"><div class="tile-icon">&#128336;</div><div class="tile-title">Normal</div></div>
+          <div class="tile-desc">Kurze Wartezeit akzeptabel — wie eine Web-Suche</div>
+          <div class="tile-token">z.B. Dokumentenanalyse</div>
+        </div>
+        <div class="tile" onclick="pick('latency','Batch',null,5)">
+          <div class="tile-top"><div class="tile-icon">&#128193;</div><div class="tile-title">Batch</div></div>
+          <div class="tile-desc">Verarbeitung läuft im Hintergrund, Ergebnis kommt später</div>
+          <div class="tile-token">z.B. nächtliche Auswertungen</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S5: Ergebnis -->
+    <div class="screen" id="s5">
+      <h2>Ihre Sizing-Einschätzung</h2>
+      <div class="summary-chips" id="chips"></div>
+      <div class="result-grid">
+        <div class="result-teaser">
+          <div class="result-label">GPU-Klasse</div>
+          <div class="result-value" id="gpuClass">&#8212;</div>
+          <div class="result-sub" id="gpuEx"></div>
+        </div>
+        <div class="result-teaser">
+          <div class="result-label">Geschätzte Investition</div>
+          <div class="result-value" id="priceRange">&#8212;</div>
+          <div class="result-sub">je nach Konfiguration</div>
+        </div>
+      </div>
+      <div class="result-locked">
+        <div class="locked-content">
+          <div class="locked-row gold">
+            <span class="locked-row-label">&#10022; KI-Modell-Empfehlung</span>
+            <span class="locked-row-val">Llama 3.3 70B (on-prem)</span>
+          </div>
+          <div class="locked-row"><span class="locked-row-label">Empfohlene GPU</span><span class="locked-row-val">NVIDIA H100 80GB SXM</span></div>
+          <div class="locked-row"><span class="locked-row-label">Anzahl GPUs</span><span class="locked-row-val">2&#215; (1 Node)</span></div>
+          <div class="locked-row"><span class="locked-row-label">Server</span><span class="locked-row-val">Dell PowerEdge XE9680</span></div>
+          <div class="locked-row"><span class="locked-row-label">VRAM gesamt</span><span class="locked-row-val">160 GB HBM3</span></div>
+          <div class="locked-row"><span class="locked-row-label">AI Factory Stack</span><span class="locked-row-val">Dell AI Factory + NVIDIA AI Enterprise</span></div>
+          <div class="locked-row"><span class="locked-row-label">Weiteres</span><span class="locked-row-val">Netzwerk &#183; Storage &#183; Rack &#183; Lizenzen</span></div>
+        </div>
+        <div class="locked-overlay">
+          <div class="lock-icon">&#128274;</div>
+          <h3>Vollständige Empfehlung</h3>
+          <p>KI-Modell &#183; GPU &#183; Server &#183; AI Factory Stack</p>
+        </div>
+      </div>
+      <div class="email-gate">
+        <h3>Vollbericht kostenlos erhalten</h3>
+        <p>GPU-Spezifikation, Server-Datenblatt, KI-Modell-Empfehlung und AI Factory Stack — alles in einem Report. Ein CANCOM-Experte meldet sich innerhalb von 1&#8211;2 Werktagen.</p>
+        <div class="email-row">
+          <input class="email-input" type="email" placeholder="vorname.nachname@firma.de" id="emailInput">
+          <button class="btn-submit" onclick="submitForm()">Empfehlung anfordern &#8594;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- S6: Danke -->
+    <div class="screen" id="s6">
+      <div class="thankyou-icon">&#127881;</div>
+      <h2 style="text-align:center;margin-bottom:6px;">Empfehlung wird vorbereitet!</h2>
+      <p class="sub" style="text-align:center;margin-bottom:20px;">Ihr persönlicher Sizing-Report ist auf dem Weg.</p>
+      <div class="thankyou-box">
+        <p>
+          <strong>Was Sie erhalten:</strong><br><br>
+          &#10003; Ihren Sizing-Report per E-Mail — inkl. KI-Modell-Vergleich, GPU-Empfehlung und Server-Datenblatt<br><br>
+          &#128222; Ein CANCOM AI-Spezialist meldet sich innerhalb von 1&#8211;2 Werktagen<br><br>
+          &#128203; Ihr Profil: <strong id="summaryText"></strong>
+        </p>
+      </div>
+      <button class="btn-primary" onclick="restart()" style="background:var(--surface);box-shadow:none;border:1px solid var(--border);">&#8592; Neues Sizing starten</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const state = {};
+  const TOTAL = 4;
+  function goTo(n) {
+    document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+    document.getElementById("s"+n).classList.add("active");
+    const ind = document.getElementById("stepInd");
+    const bar = document.getElementById("progress");
+    if (n===0){ind.textContent="";bar.style.width="0%";}
+    else if(n<=TOTAL){ind.textContent="Schritt "+n+" von "+TOTAL;bar.style.width=(n/TOTAL*100)+"%";}
+    else{ind.textContent="";bar.style.width="100%";}
+    window.scrollTo(0,0);
+  }
+  function pick(key,val,modelVal,next){
+    state[key]=val;
+    if(modelVal)state.modelType=modelVal;
+    if(next===5)showResult();else goTo(next);
+  }
+  function showResult(){
+    const u=state.users||"",uc=state.usecase||"";
+    let gpu="Enterprise GPU",ex="",price="~150–400k €";
+    if(uc.includes("Chatbot")){
+      if(u.includes("1")){gpu="Professional GPU";ex="z.B. NVIDIA L40S";price="~30–80k €";}
+      else if(u.includes("10–50")){gpu="Enterprise GPU";ex="z.B. NVIDIA A100 / H100";price="~80–200k €";}
+      else{gpu="Enterprise GPU (Multi-GPU)";ex="z.B. 2× NVIDIA H100 SXM";price="~150–350k €";}
+    }else if(uc.includes("Coding")){
+      if(u.includes("1")||u.includes("10–50")){gpu="Professional GPU";ex="z.B. NVIDIA L40S";price="~30–100k €";}
+      else{gpu="Enterprise GPU";ex="z.B. NVIDIA H100";price="~100–250k €";}
+    }else if(uc.includes("Dokumente")){
+      gpu="Enterprise GPU";ex="z.B. NVIDIA H100 / H200";price="~180–500k €";
+      if(u.includes("200")){gpu="HPC / AI Cluster";ex="";price="~500k–1M+ €";}
+    }else if(uc.includes("Prozesse")){gpu="Enterprise GPU";ex="z.B. NVIDIA H100 SXM";price="~150–400k €";
+    }else if(uc.includes("Computer")){gpu="Inference-GPU / Edge AI";ex="z.B. NVIDIA L40S / Jetson";price="~20–150k €";
+    }else if(uc.includes("Bild")){gpu="Enterprise GPU";ex="z.B. NVIDIA H100 SXM";price="~150–400k €";}
+    document.getElementById("gpuClass").textContent=gpu;
+    document.getElementById("gpuEx").textContent=ex;
+    document.getElementById("priceRange").textContent=price;
+    document.getElementById("chips").innerHTML=[["Anwendungsfall",state.usecase],["Modell",state.modelType],["Nutzer",state.users],["Kontext",state.context],["Latenz",state.latency]]
+      .filter(([,v])=>v).map(([k,v])=>`<div class="chip"><em>${k}:</em> ${v}</div>`).join("");
+    goTo(5);
+  }
+  function submitForm(){
+    const el=document.getElementById("emailInput");
+    if(!el.value||!el.value.includes("@")){el.style.borderColor="rgba(218,0,44,.6)";el.focus();return;}
+    document.getElementById("summaryText").textContent=[state.usecase,state.modelType,state.users,state.context,state.latency].filter(Boolean).join(" · ");
+    goTo(6);
+  }
+  function restart(){Object.keys(state).forEach(k=>delete state[k]);goTo(0);}
+</script>
+</body>
+</html>

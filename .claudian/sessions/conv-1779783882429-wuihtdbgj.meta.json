@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779783882429-wuihtdbgj",
+  "providerId": "claude",
+  "title": "Speichere Skills Export im Vault",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779783882429,
+  "updatedAt": 1779796024314,
+  "lastResponseAt": 1779791840780,
+  "sessionId": "0af83cf6-72d5-4bc5-a3cd-57e4f3d56cfc",
+  "providerState": {
+    "providerSessionId": "0af83cf6-72d5-4bc5-a3cd-57e4f3d56cfc"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 867,
+    "cacheReadInputTokens": 80183,
+    "contextWindow": 1000000,
+    "contextTokens": 81051,
+    "percentage": 8,
+    "contextWindowIsAuthoritative": true
+  }
+}

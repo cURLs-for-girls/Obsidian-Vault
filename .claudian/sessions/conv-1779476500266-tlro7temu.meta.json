@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779476500266-tlro7temu",
+  "providerId": "claude",
+  "title": "Create Functional Patterns Seminar Flyer",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779476500266,
+  "updatedAt": 1779779274608,
+  "lastResponseAt": 1779559384694,
+  "sessionId": "a654d92f-de0e-45e8-a794-e9cae96bd805",
+  "providerState": {
+    "providerSessionId": "a654d92f-de0e-45e8-a794-e9cae96bd805"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 311,
+    "cacheReadInputTokens": 162254,
+    "contextWindow": 200000,
+    "contextTokens": 162566,
+    "percentage": 81,
+    "contextWindowIsAuthoritative": true
+  }
+}

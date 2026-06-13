@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779476335772-kxf7lrf6t",
+  "providerId": "claude",
+  "title": "Daily Note für heute schreiben",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779476335772,
+  "updatedAt": 1779557358680,
+  "lastResponseAt": 1779476422333,
+  "sessionId": "4e741ef8-8921-4b87-818b-b2c424d42b4c",
+  "providerState": {
+    "providerSessionId": "4e741ef8-8921-4b87-818b-b2c424d42b4c"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 1204,
+    "cacheReadInputTokens": 27643,
+    "contextWindow": 200000,
+    "contextTokens": 28848,
+    "percentage": 14,
+    "contextWindowIsAuthoritative": true
+  }
+}

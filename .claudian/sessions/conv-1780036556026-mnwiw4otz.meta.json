@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780036556026-mnwiw4otz",
+  "providerId": "claude",
+  "title": "Shop Wizard HTML finden",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780036556028,
+  "updatedAt": 1780047972372,
+  "lastResponseAt": 1780041452264,
+  "sessionId": "49292fbb-2b35-4bda-9c5b-99b3676d4665",
+  "providerState": {
+    "providerSessionId": "49292fbb-2b35-4bda-9c5b-99b3676d4665"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 701,
+    "cacheReadInputTokens": 96753,
+    "contextWindow": 1000000,
+    "contextTokens": 97455,
+    "percentage": 10,
+    "contextWindowIsAuthoritative": true
+  }
+}

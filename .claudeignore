@@ -1,0 +1,5 @@
+# Claude ignoriert diese Bereiche vollständig.
+# Dateien hier werden nie gelesen, auch nicht auf explizite Anfrage.
+
+# Besprechungsnotizen – nur für Eva, nicht für KI-Verarbeitung
+04 Ressourcen/Besprechungsnotizen/

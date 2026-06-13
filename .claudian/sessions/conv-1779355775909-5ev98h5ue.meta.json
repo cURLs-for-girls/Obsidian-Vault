@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779355775909-5ev98h5ue",
+  "providerId": "claude",
+  "title": "Generate Kemmler meeting title",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779355775909,
+  "updatedAt": 1779368300033,
+  "lastResponseAt": 1779356753035,
+  "sessionId": "3da286a5-a1e0-4bf7-8b1e-be3044f53b00",
+  "providerState": {
+    "providerSessionId": "3da286a5-a1e0-4bf7-8b1e-be3044f53b00"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 146,
+    "cacheReadInputTokens": 36199,
+    "contextWindow": 200000,
+    "contextTokens": 36346,
+    "percentage": 18,
+    "contextWindowIsAuthoritative": true
+  }
+}

@@ -1,0 +1,72 @@
+<h2>Welche Headline trifft den richtigen Ton?</h2>
+<p class="subtitle">Dunkler Stil (wie Option A) — drei verschiedene Aussagerichtungen. Kein Heilversprechen, aber klare Haltung.</p>
+
+<div class="cards" style="grid-template-columns: repeat(3, 1fr); align-items: start;">
+
+  <!-- Option A: Mythos brechen -->
+  <div class="card" data-choice="myth-buster" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0; overflow:hidden; position:relative; min-height:280px; background:#111;">
+      <img src="trainer-m.PNG" style="width:100%; height:280px; object-fit:cover; object-position:center top; opacity:0.22; display:block; filter:grayscale(60%);">
+      <div style="position:absolute; inset:0; background:linear-gradient(160deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 100%);"></div>
+      <div style="position:absolute; inset:0; padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="font-size:8px; letter-spacing:3px; color:rgba(255,255,255,0.45); font-family:sans-serif; text-transform:uppercase;">Biomechanik-Seminar</div>
+        <div>
+          <div style="font-size:22px; font-weight:800; color:#fff; font-family:sans-serif; line-height:1.2; text-transform:uppercase;">Schmerzen<br>sind keine<br>Alters&shy;erscheinung.</div>
+          <div style="width:30px; height:2px; background:rgba(255,255,255,0.4); margin:14px 0 10px;"></div>
+          <div style="font-size:10px; color:rgba(255,255,255,0.55); font-family:sans-serif; line-height:1.6;">Lerne, wie Biomechanik<br>deinen Alltag verändert.</div>
+        </div>
+        <div style="font-size:8px; letter-spacing:2px; color:rgba(255,255,255,0.35); font-family:sans-serif; text-transform:uppercase;">Functional Patterns</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Mythos brechen</h3>
+      <p>Direkte These, die den verbreiteten Irrtum benennt. Keine Versprechen — nur eine Aussage, die neugierig macht. Spricht Menschen an, die bereits zweifeln.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Frage stellen -->
+  <div class="card" data-choice="question" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0; overflow:hidden; position:relative; min-height:280px; background:#0d1f17;">
+      <img src="trainer-f.PNG" style="width:100%; height:280px; object-fit:cover; object-position:center 15%; opacity:0.2; display:block; filter:grayscale(50%);">
+      <div style="position:absolute; inset:0; background:linear-gradient(160deg, rgba(10,30,20,0.5) 0%, rgba(5,10,8,0.9) 100%);"></div>
+      <div style="position:absolute; inset:0; padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="font-size:8px; letter-spacing:3px; color:rgba(255,255,255,0.4); font-family:sans-serif; text-transform:uppercase;">Biomechanik-Seminar</div>
+        <div>
+          <div style="font-size:22px; font-weight:800; color:#fff; font-family:sans-serif; line-height:1.2;">Was, wenn<br>dein Körper<br><span style="color:#74c69d;">nicht das<br>Problem ist?</span></div>
+          <div style="width:30px; height:2px; background:#74c69d; margin:14px 0 10px; opacity:0.6;"></div>
+          <div style="font-size:10px; color:rgba(255,255,255,0.5); font-family:sans-serif; line-height:1.6;">Verstehe die Mechanik<br>hinter Schmerz und Bewegung.</div>
+        </div>
+        <div style="font-size:8px; letter-spacing:2px; color:rgba(255,255,255,0.3); font-family:sans-serif; text-transform:uppercase;">Functional Patterns</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Die Frage</h3>
+      <p>Öffnet eine Perspektive, ohne etwas zu versprechen. Wer Schmerzen hat und Schuld beim Körper sucht, wird direkt angesprochen. Einladend statt belehrend.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Sachlich & Bildung -->
+  <div class="card" data-choice="educational" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0; overflow:hidden; position:relative; min-height:280px; background:#111;">
+      <img src="trainer-m.PNG" style="width:100%; height:280px; object-fit:cover; object-position:30% top; opacity:0.2; display:block; filter:grayscale(70%);">
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.9) 60%);"></div>
+      <div style="position:absolute; inset:0; padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="font-size:8px; letter-spacing:3px; color:rgba(255,255,255,0.4); font-family:sans-serif; text-transform:uppercase;">Biomechanik-Seminar</div>
+        <div>
+          <div style="font-size:13px; font-weight:400; color:rgba(255,255,255,0.6); font-family:sans-serif; font-style:italic; margin-bottom:6px;">„Der menschliche Körper<br>ist kein Verschleißteil."</div>
+          <div style="font-size:20px; font-weight:800; color:#fff; font-family:sans-serif; line-height:1.25; text-transform:uppercase;">Wie du dich<br>bewegst,<br>entscheidet alles.</div>
+          <div style="width:30px; height:2px; background:rgba(255,255,255,0.35); margin:14px 0 10px;"></div>
+          <div style="font-size:10px; color:rgba(255,255,255,0.5); font-family:sans-serif; line-height:1.6;">Functional Patterns erklärt<br>Biomechanik neu.</div>
+        </div>
+        <div style="font-size:8px; letter-spacing:2px; color:rgba(255,255,255,0.3); font-family:sans-serif; text-transform:uppercase;">Functional Patterns</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Haltung & Zitat</h3>
+      <p>Kein Versprechen, sondern eine Weltanschauung. Das Zitat eröffnet den Gedanken, die Headline schließt ihn. Etwas tiefer, philosophischer Ton.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:20px;">Alle drei vermeiden Heilversprechen — sie laden ein, hinterfragen und erklären. Klick deine Favoriten oder kombiniere.</p>

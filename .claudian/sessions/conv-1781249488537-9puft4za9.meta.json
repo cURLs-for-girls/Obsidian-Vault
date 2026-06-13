@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781249488537-9puft4za9",
+  "providerId": "claude",
+  "title": "Find and organize OneNote imports",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781249488537,
+  "updatedAt": 1781250470470,
+  "lastResponseAt": 1781250470470,
+  "sessionId": "ceafa150-9cef-4bb4-9976-c9a9af2fcc6c",
+  "providerState": {
+    "providerSessionId": "ceafa150-9cef-4bb4-9976-c9a9af2fcc6c"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 518,
+    "cacheReadInputTokens": 60751,
+    "contextWindow": 200000,
+    "contextTokens": 61270,
+    "percentage": 31,
+    "contextWindowIsAuthoritative": true
+  }
+}

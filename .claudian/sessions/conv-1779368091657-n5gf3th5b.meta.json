@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779368091657-n5gf3th5b",
+  "providerId": "claude",
+  "title": "Add security AI tasks to Todoist",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779368091689,
+  "updatedAt": 1779443674295,
+  "lastResponseAt": 1779440727644,
+  "sessionId": "84a473f9-b851-4c3e-b394-187dc5479d44",
+  "providerState": {
+    "providerSessionId": "84a473f9-b851-4c3e-b394-187dc5479d44"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 370,
+    "cacheReadInputTokens": 88055,
+    "contextWindow": 200000,
+    "contextTokens": 88426,
+    "percentage": 44,
+    "contextWindowIsAuthoritative": true
+  }
+}

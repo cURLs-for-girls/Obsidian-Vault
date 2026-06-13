@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780424853400-8ndmg0rse",
+  "providerId": "claude",
+  "title": "Configure daily notes cronjob",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780424853400,
+  "updatedAt": 1780488372196,
+  "lastResponseAt": 1780425125866,
+  "sessionId": "71213675-a318-4555-8cb2-2348287c146c",
+  "providerState": {
+    "providerSessionId": "71213675-a318-4555-8cb2-2348287c146c"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 241,
+    "cacheReadInputTokens": 47861,
+    "contextWindow": 200000,
+    "contextTokens": 48103,
+    "percentage": 24,
+    "contextWindowIsAuthoritative": true
+  }
+}

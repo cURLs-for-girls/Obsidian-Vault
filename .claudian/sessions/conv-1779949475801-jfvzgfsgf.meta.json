@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779949475801-jfvzgfsgf",
+  "providerId": "claude",
+  "title": "Analyze Rise of AI conference summary",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779949475802,
+  "updatedAt": 1779979009342,
+  "lastResponseAt": 1779952812833,
+  "sessionId": "34b71f56-e26f-4fc1-8319-5c5c89584fdd",
+  "providerState": {
+    "providerSessionId": "34b71f56-e26f-4fc1-8319-5c5c89584fdd"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 454,
+    "cacheReadInputTokens": 36922,
+    "contextWindow": 200000,
+    "contextTokens": 37377,
+    "percentage": 19,
+    "contextWindowIsAuthoritative": true
+  }
+}

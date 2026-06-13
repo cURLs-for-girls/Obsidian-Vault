@@ -1,0 +1,24 @@
+{
+  "id": "conv-1780299098677-3wkl0xsb5",
+  "providerId": "claude",
+  "title": "Zeige Fortschritt & Wizard-Publikation",
+  "titleGenerationStatus": "success",
+  "createdAt": 1780299098677,
+  "updatedAt": 1780391251868,
+  "lastResponseAt": 1780326432425,
+  "sessionId": "13db8f88-0ac3-4745-8e21-1ea2bc39bc99",
+  "providerState": {
+    "providerSessionId": "13db8f88-0ac3-4745-8e21-1ea2bc39bc99"
+  },
+  "currentNote": "02 Projekte/Shop Wizard/Shop Wizard.md",
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 956,
+    "cacheReadInputTokens": 132677,
+    "contextWindow": 1000000,
+    "contextTokens": 133634,
+    "percentage": 13,
+    "contextWindowIsAuthoritative": true
+  }
+}

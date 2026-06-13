@@ -1,0 +1,26 @@
+{
+  "id": "conv-1779086307128-5m9x5c1pv",
+  "providerId": "claude",
+  "title": "Plane KI-Basics Session mit Datacenter-Fokus",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779086307128,
+  "updatedAt": 1779091991577,
+  "lastResponseAt": 1779086356207,
+  "sessionId": "e1b8707d-fb52-4a95-911d-9cead6079a64",
+  "providerState": {
+    "providerSessionId": "e1b8707d-fb52-4a95-911d-9cead6079a64"
+  },
+  "externalContextPaths": [
+    "/Users/eva.doelle/Library/CloudStorage/OneDrive-CANCOMGmbH/AI/2_CDC allgemein/Learning Friday"
+  ],
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 504,
+    "cacheReadInputTokens": 29068,
+    "contextWindow": 200000,
+    "contextTokens": 29573,
+    "percentage": 15,
+    "contextWindowIsAuthoritative": true
+  }
+}

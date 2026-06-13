@@ -1,0 +1,23 @@
+{
+  "id": "conv-1779443714896-5gb3zb8s7",
+  "providerId": "claude",
+  "title": "Erstelle Lernkarten aus Kapitel 3.1",
+  "titleGenerationStatus": "success",
+  "createdAt": 1779443714896,
+  "updatedAt": 1779476285205,
+  "lastResponseAt": 1779453768088,
+  "sessionId": "55a238e2-48f4-449a-9886-72a095f3e1b5",
+  "providerState": {
+    "providerSessionId": "55a238e2-48f4-449a-9886-72a095f3e1b5"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 24709,
+    "cacheReadInputTokens": 11910,
+    "contextWindow": 200000,
+    "contextTokens": 36622,
+    "percentage": 18,
+    "contextWindowIsAuthoritative": true
+  }
+}

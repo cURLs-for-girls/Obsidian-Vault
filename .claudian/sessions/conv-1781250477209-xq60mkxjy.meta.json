@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781250477209-xq60mkxjy",
+  "providerId": "claude",
+  "title": "Track workshop action plan items",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781250477210,
+  "updatedAt": 1781255269188,
+  "lastResponseAt": 1781255269188,
+  "sessionId": "0c8e1e90-0fdc-4677-af28-dc4ca2f18ec5",
+  "providerState": {
+    "providerSessionId": "0c8e1e90-0fdc-4677-af28-dc4ca2f18ec5"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 277,
+    "cacheReadInputTokens": 30383,
+    "contextWindow": 200000,
+    "contextTokens": 30661,
+    "percentage": 15,
+    "contextWindowIsAuthoritative": true
+  }
+}
