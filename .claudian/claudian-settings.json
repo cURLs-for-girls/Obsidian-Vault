@@ -1,12 +1,12 @@
 {
-  "userName": "",
+  "userName": "Eva",
   "permissionMode": "yolo",
-  "model": "sonnet",
+  "model": "sonnet[1m]",
   "thinkingBudget": "low",
   "effortLevel": "high",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
-  "titleGenerationModel": "",
+  "titleGenerationModel": "sonnet[1m]",
   "excludedTags": [],
   "mediaFolder": "",
   "systemPrompt": "",
@@ -14,25 +14,26 @@
   "sharedEnvironmentVariables": "",
   "envSnippets": [],
   "customContextLimits": {},
+  "customModelAliases": {},
   "keyboardNavigation": {
     "scrollUpKey": "w",
     "scrollDownKey": "s",
     "focusInputKey": "i"
   },
   "requireCommandOrControlEnterToSend": false,
-  "locale": "en",
+  "locale": "de",
   "providerConfigs": {
     "claude": {
       "safeMode": "acceptEdits",
       "cliPath": "",
       "cliPathsByHost": {},
       "loadUserSettings": true,
-      "enableChrome": false,
+      "enableChrome": true,
       "enableBangBash": false,
-      "enableOpus1M": false,
-      "enableSonnet1M": false,
+      "enableOpus1M": true,
+      "enableSonnet1M": true,
       "customModels": "",
-      "lastModel": "sonnet",
+      "lastModel": "sonnet[1m]",
       "environmentVariables": "",
       "environmentHash": ""
     },
@@ -61,27 +62,38 @@
       "selectedMode": "",
       "thinkingOptionsByModel": {},
       "visibleModels": []
+    },
+    "pi": {
+      "cliPath": "",
+      "cliPathsByHost": {},
+      "discoveredModels": [],
+      "enabled": false,
+      "environmentHash": "",
+      "environmentVariables": "",
+      "modelAliases": {},
+      "preferredThinkingByModel": {},
+      "toolMode": "all",
+      "visibleModels": []
     }
   },
   "settingsProvider": "claude",
   "savedProviderModel": {
-    "claude": "sonnet"
+    "claude": "sonnet[1m]"
   },
   "savedProviderEffort": {
     "claude": "high"
   },
   "savedProviderServiceTier": {},
-  "savedProviderThinkingBudget": {
-    "claude": "low"
-  },
+  "savedProviderThinkingBudget": {},
   "savedProviderPermissionMode": {
     "claude": "yolo"
   },
   "lastCustomModel": "",
-  "maxTabs": 3,
-  "tabBarPosition": "input",
+  "maxTabs": 5,
   "enableAutoScroll": true,
   "deferMathRenderingDuringStreaming": true,
+  "expandFileEditsByDefault": false,
   "chatViewPlacement": "right-sidebar",
-  "hiddenProviderCommands": {}
+  "hiddenProviderCommands": {},
+  "tabBarPosition": "input"
 }

@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781643234418-jpb18b78x",
+  "providerId": "claude",
+  "title": "Summarize HPE Discover keynote notes",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781643234422,
+  "updatedAt": 1782114005959,
+  "lastResponseAt": 1781814324710,
+  "sessionId": "645c9f08-92c5-4dac-a91f-d66283d4d49b",
+  "providerState": {
+    "providerSessionId": "645c9f08-92c5-4dac-a91f-d66283d4d49b"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 3498,
+    "cacheReadInputTokens": 156891,
+    "contextWindow": 1000000,
+    "contextTokens": 160390,
+    "percentage": 16,
+    "contextWindowIsAuthoritative": true
+  }
+}

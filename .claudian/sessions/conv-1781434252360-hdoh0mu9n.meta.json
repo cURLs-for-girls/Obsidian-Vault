@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781434252360-hdoh0mu9n",
+  "providerId": "claude",
+  "title": "Note NVIDIA AI factory reference architecture",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781434252361,
+  "updatedAt": 1781535346222,
+  "lastResponseAt": 1781434375008,
+  "sessionId": "e661f295-0749-4452-ad6f-ac3793ff4c7d",
+  "providerState": {
+    "providerSessionId": "e661f295-0749-4452-ad6f-ac3793ff4c7d"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 517,
+    "cacheReadInputTokens": 31468,
+    "contextWindow": 200000,
+    "contextTokens": 31986,
+    "percentage": 16,
+    "contextWindowIsAuthoritative": true
+  }
+}

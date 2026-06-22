@@ -26,7 +26,7 @@ Fachgebiet rund um Speicherlösungen für KI-Workloads – mit Fokus auf die The
 
 ## Links und Quellen
 
--
+- [[04 Ressourcen/AI Storage/HPE GreenLake File Storage – AI Plattform]] – NVMe-oF als universelles Backend für Data Prep / Training / Inference (zu bewerten)
 
 ## Notizen
 

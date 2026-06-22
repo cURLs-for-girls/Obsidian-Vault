@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781643329903-x5g4kptbu",
+  "providerId": "claude",
+  "title": "Summarize Intel use case transcript",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781643329904,
+  "updatedAt": 1781856637911,
+  "lastResponseAt": 1781643697833,
+  "sessionId": "d63d7e8c-d04e-4731-a2bb-6a16900a273a",
+  "providerState": {
+    "providerSessionId": "d63d7e8c-d04e-4731-a2bb-6a16900a273a"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 3528,
+    "cacheReadInputTokens": 35722,
+    "contextWindow": 1000000,
+    "contextTokens": 39256,
+    "percentage": 4,
+    "contextWindowIsAuthoritative": true
+  }
+}

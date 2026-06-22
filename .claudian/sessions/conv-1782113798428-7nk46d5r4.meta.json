@@ -1,0 +1,22 @@
+{
+  "id": "conv-1782113798428-7nk46d5r4",
+  "providerId": "claude",
+  "title": "also heute montag 22",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1782113798429,
+  "updatedAt": 1782114005959,
+  "lastResponseAt": 1782113813732,
+  "sessionId": "c0f4dc24-0421-447c-9fa2-85e301a5b106",
+  "providerState": {
+    "providerSessionId": "c0f4dc24-0421-447c-9fa2-85e301a5b106"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 0,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 0,
+    "percentage": 0
+  }
+}

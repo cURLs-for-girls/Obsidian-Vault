@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781851057682-r78qwrmew",
+  "providerId": "claude",
+  "title": "Continue workshop homework",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781851057684,
+  "updatedAt": 1782113767858,
+  "lastResponseAt": 1781851103735,
+  "sessionId": "5b020c49-17ad-4dc3-abc7-7f48864deb17",
+  "providerState": {
+    "providerSessionId": "5b020c49-17ad-4dc3-abc7-7f48864deb17"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 439,
+    "cacheReadInputTokens": 32073,
+    "contextWindow": 1000000,
+    "contextTokens": 32513,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

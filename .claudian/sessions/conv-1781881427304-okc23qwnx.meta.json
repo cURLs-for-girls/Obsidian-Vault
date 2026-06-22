@@ -1,0 +1,22 @@
+{
+  "id": "conv-1781881427304-okc23qwnx",
+  "providerId": "claude",
+  "title": "Convert meeting times to Florida timezone",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781881427309,
+  "updatedAt": 1782115818043,
+  "lastResponseAt": 1782115818043,
+  "sessionId": "dabc4cc4-5652-467c-921b-f596d1b35f97",
+  "providerState": {
+    "providerSessionId": "dabc4cc4-5652-467c-921b-f596d1b35f97"
+  },
+  "usage": {
+    "model": "sonnet[1m]",
+    "inputTokens": 0,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 1000000,
+    "contextTokens": 0,
+    "percentage": 0
+  }
+}

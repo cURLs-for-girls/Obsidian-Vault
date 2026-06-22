@@ -17,6 +17,10 @@ Referenzarchitekturen systematisch erfassen, vergleichen und als Grundlage für 
 
 [[Herstellervergleich – Dell vs. Cisco vs. HPE]] – Alle Unterschiede auf einen Blick.
 
+## Zentrales Referenzbild
+
+[[NVIDIA Full Stack AI Factory – Übersicht]] – Das offizielle NVIDIA-Diagramm „Full Stack for AI Factories" als Vorlage und Grundlage aller OEM-Varianten.
+
 ## Hersteller
 
 - **NVIDIA** – DGX-Reference Architectures (BasePOD, SuperPOD) – das "Original", auf das die OEM-Versionen aufsetzen
@@ -28,6 +32,7 @@ Referenzarchitekturen systematisch erfassen, vergleichen und als Grundlage für 
 
 | Hersteller | Architektur | Anwendungsfall | Notiz |
 | ---------- | ----------- | -------------- | ----- |
+| NVIDIA | **Full Stack AI Factory** (Referenzvorlage) | Zentrales Architekturmodell – Grundlage aller OEM-Varianten | [[NVIDIA Full Stack AI Factory – Übersicht]] |
 | NVIDIA | DGX BasePOD (B200 / H200 / H100) | Enterprise AI Entry, 2–8 DGX-Nodes | [[NVIDIA DGX BasePOD]] |
 | NVIDIA | DGX SuperPOD (GB200 NVL72) | AI-Factory, Rack-Scale Training bis 9.216 GPUs | [[NVIDIA DGX SuperPOD GB200]] |
 | Dell + NVIDIA | AI Factory with NVIDIA – Spectrum-X | Training, Fine-Tuning, Inference (On-Prem) | [[Dell AI Factory with NVIDIA – Spectrum-X]] |

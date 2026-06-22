@@ -35,7 +35,7 @@ deadline: 2026-06-26
 | 16.06. | Di | | | |
 | 17.06. | Mi | | | |
 | 18.06. | Do | | | |
-| 19.06. | Fr | | | |
+| 19.06. | Fr | 50% | | Erster klassischer Arbeitstag — Jetlag, Ohrentzündung, Schlafmangel |
 | 20.06. | Sa | | | |
 | 21.06. | So | | | |
 | 22.06. | Mo | | | |

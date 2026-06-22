@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781535449391-zvjzfdnhk",
+  "providerId": "claude",
+  "title": "Describe homework energy level after travel",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781535449391,
+  "updatedAt": 1781642701275,
+  "lastResponseAt": 1781559671257,
+  "sessionId": "8d38f0f2-1311-4d2d-9295-d7d6695337d9",
+  "providerState": {
+    "providerSessionId": "8d38f0f2-1311-4d2d-9295-d7d6695337d9"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 4055,
+    "cacheReadInputTokens": 20820,
+    "contextWindow": 200000,
+    "contextTokens": 24876,
+    "percentage": 12,
+    "contextWindowIsAuthoritative": true
+  }
+}

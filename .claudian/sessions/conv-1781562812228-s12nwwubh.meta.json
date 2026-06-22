@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781562812228-s12nwwubh",
+  "providerId": "claude",
+  "title": "Explain SPIFFE and SPYRE in PCAI",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781562812228,
+  "updatedAt": 1781851023087,
+  "lastResponseAt": 1781563499668,
+  "sessionId": "9884e3b3-b654-414a-bb37-3a2191ebe718",
+  "providerState": {
+    "providerSessionId": "9884e3b3-b654-414a-bb37-3a2191ebe718"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6,
+    "cacheCreationInputTokens": 31237,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 1000000,
+    "contextTokens": 31243,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

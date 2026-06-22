@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781535365497-0k25rtceq",
+  "providerId": "claude",
+  "title": "Save image for AI storage evaluation",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781535365497,
+  "updatedAt": 1781562797947,
+  "lastResponseAt": 1781535788899,
+  "sessionId": "886facc9-1938-44a0-bdb3-6192aa71e052",
+  "providerState": {
+    "providerSessionId": "886facc9-1938-44a0-bdb3-6192aa71e052"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 1230,
+    "cacheReadInputTokens": 26669,
+    "contextWindow": 200000,
+    "contextTokens": 27900,
+    "percentage": 14,
+    "contextWindowIsAuthoritative": true
+  }
+}

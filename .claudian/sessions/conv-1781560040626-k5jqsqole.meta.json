@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781560040626-k5jqsqole",
+  "providerId": "claude",
+  "title": "Summarize HPE Discover conference notes",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781560040632,
+  "updatedAt": 1781643284922,
+  "lastResponseAt": 1781561801363,
+  "sessionId": "17d19c5b-91a0-49b3-b928-2393fced0173",
+  "providerState": {
+    "providerSessionId": "17d19c5b-91a0-49b3-b928-2393fced0173"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 206,
+    "cacheReadInputTokens": 71685,
+    "contextWindow": 200000,
+    "contextTokens": 71894,
+    "percentage": 36,
+    "contextWindowIsAuthoritative": true
+  }
+}
